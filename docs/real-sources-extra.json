@@ -1,0 +1,13 @@
+[
+  {
+    "file": "/workspace/scratch/sternoir-production-assets/real/ml-w164-better.jpg",
+    "author": "M 93",
+    "source": "https://commons.wikimedia.org/wiki/File:Mercedes_ML_280CDI_Edition_10_front.jpg",
+    "download_url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Mercedes_ML_280CDI_Edition_10_front.jpg",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "model": "M-Class W164",
+    "model_confidence": "high based on source title, pending visual inspection",
+    "description": "Mercedes ML 280CDI Edition 10"
+  }
+]

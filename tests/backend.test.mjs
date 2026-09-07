@@ -1,0 +1,53 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtempSync, rmSync, mkdirSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { createApp } from '../server.mjs';
+
+test('persistent booking, isolated accounts, immutable server-priced approval, permissions and CSRF', async () => {
+ const dir=mkdtempSync(join(tmpdir(),'sternoir-test-')); const publicDir=join(dir,'public');mkdirSync(publicDir);writeFileSync(join(publicDir,'index.html'),'<h1>Test site</h1>');
+ const settings={dataDir:dir,publicDir,adminEmail:'owner@example.test',adminPassword:'test-only-long-admin-password',production:false};
+ let app=createApp(settings);await new Promise(r=>app.server.listen(0,'127.0.0.1',r)); let base=`http://127.0.0.1:${app.server.address().port}`;
+ const request=async(path,method='GET',body,cookie='',origin=base)=>{const res=await fetch(base+path,{method,headers:{...(body!==undefined?{'content-type':'application/json'}:{}),...(method!=='GET'?{origin}:{}),...(cookie?{cookie}:{})},...(body!==undefined?{body:JSON.stringify(body)}:{})});return{status:res.status,body:await res.json(),cookie:res.headers.get('set-cookie')?.split(';')[0],headers:res.headers};};
+ try {
+  assert.equal((await request('/api/admin')).status,401);
+  assert.equal((await request('/api/auth/register','POST',{name:'Blocked',email:'blocked@example.test',password:'password-12345'},'', 'https://attacker.test')).status,403);
+  const a=await request('/api/auth/register','POST',{name:'Клиент А',email:'a@example.test',password:'client-a-password',phone:'+79990000001'});assert.equal(a.status,201);assert.match(a.headers.get('set-cookie'),/HttpOnly; SameSite=Lax/);assert.equal(a.body.user.role,'customer');assert.equal(a.body.user.password_hash,undefined);
+  const b=await request('/api/auth/register','POST',{name:'Клиент Б',email:'b@example.test',password:'client-b-password'});const admin=await request('/api/auth/login','POST',{email:'owner@example.test',password:settings.adminPassword});assert.equal(admin.body.user.role,'admin');
+  const car=await request('/api/cars','POST',{model:'Mercedes-Benz E 200 W213',year:'2019',remindersEnabled:true},a.cookie);assert.equal(car.status,201);assert.equal(car.body.car.remindersEnabled,true);
+  assert.equal((await request(`/api/cars/${car.body.car.id}`,'PATCH',{model:'Stolen'},b.cookie)).status,404);
+  assert.equal((await request('/api/bookings','POST',{name:'Клиент',phone:'+79990000001',model:'W213',service:'Двигатель',consent:false},a.cookie)).status,400);
+  const booked=await request('/api/bookings','POST',{name:'Клиент А',phone:'+79990000001',model:'W213',service:'Двигатель',symptom:'Шум',carId:car.body.car.id,consent:true},a.cookie);assert.equal(booked.status,201);const id=booked.body.booking.id;
+  assert.equal((await request('/api/account','GET',undefined,a.cookie)).body.orders.length,1);
+  assert.equal((await request('/api/account','GET',undefined,b.cookie)).body.orders.length,0);
+  assert.equal((await request(`/api/orders/${id}/messages`,'POST',{body:'Access attempt'},b.cookie)).status,404);
+  assert.equal((await request('/api/admin','GET',undefined,a.cookie)).status,403);
+  assert.equal((await request(`/api/admin/orders/${id}`,'PATCH',{status:'completed'},admin.cookie)).status,409);
+  assert.equal((await request(`/api/admin/orders/${id}`,'PATCH',{status:'contacted'},admin.cookie)).status,200);
+  assert.equal((await request(`/api/admin/orders/${id}`,'PATCH',{status:'diagnostics'},admin.cookie)).status,200);
+  const q=await request(`/api/admin/orders/${id}/quote`,'POST',{items:[{title:'Диагностика',quantity:2,unitPrice:5000},{title:'Работа',quantity:1,unitPrice:20000}],total:1},admin.cookie);assert.equal(q.status,201);assert.equal(q.body.order.quote.total,30000);const oldQuote=q.body.order.quote.id;
+  assert.equal((await request(`/api/admin/orders/${id}`,'PATCH',{status:'in_progress'},admin.cookie)).status,409);
+  assert.equal((await request(`/api/orders/${id}/approve`,'POST',{quoteId:oldQuote},admin.cookie)).status,403);
+  const q2=await request(`/api/admin/orders/${id}/quote`,'POST',{items:[{title:'Работа после уточнения',quantity:1,unitPrice:27000}]},admin.cookie);assert.equal(q2.status,201);assert.equal(q2.body.order.quotes.length,2);
+  assert.equal((await request(`/api/orders/${id}/approve`,'POST',{quoteId:oldQuote,total:1},a.cookie)).status,409);
+  const approved=await request(`/api/orders/${id}/approve`,'POST',{quoteId:q2.body.order.quote.id,total:1},a.cookie);assert.equal(approved.status,200);assert.equal(approved.body.order.quote.total,27000);assert.equal(approved.body.order.quote.status,'approved');assert.equal(approved.body.order.events.filter(e=>e.type==='quote_approved').length,1);
+  assert.equal((await request(`/api/orders/${id}/approve`,'POST',{quoteId:q2.body.order.quote.id},a.cookie)).status,409);
+  assert.throws(()=>app.db.prepare('UPDATE quotes SET total=1 WHERE id=?').run(q2.body.order.quote.id),/cannot be changed/);
+  assert.throws(()=>app.db.prepare('DELETE FROM events WHERE order_id=?').run(id),/cannot be deleted/);
+  assert.equal((await request(`/api/admin/orders/${id}`,'PATCH',{status:'in_progress'},admin.cookie)).status,200);
+  assert.equal((await request(`/api/admin/orders/${id}`,'PATCH',{status:'diagnostics'},admin.cookie)).status,400);
+  const paused=await request(`/api/admin/orders/${id}`,'PATCH',{status:'diagnostics',note:'Выявлена дополнительная неисправность. Требуется новая диагностика.'},admin.cookie);assert.equal(paused.status,200);assert.equal(paused.body.order.events.filter(e=>e.type==='work_paused').length,1);assert.equal(paused.body.order.quote.status,'approved');
+  assert.equal((await request(`/api/admin/orders/${id}`,'PATCH',{status:'in_progress'},admin.cookie)).status,409);
+  const q3=await request(`/api/admin/orders/${id}/quote`,'POST',{items:[{title:'Уточнённый полный объём ремонта',quantity:1,unitPrice:31000}]},admin.cookie);assert.equal(q3.status,201);assert.equal(q3.body.order.quote.version,3);assert.equal(q3.body.order.quotes.find(q=>q.id===q2.body.order.quote.id).status,'approved');
+  assert.equal((await request(`/api/admin/orders/${id}`,'PATCH',{status:'in_progress'},admin.cookie)).status,409);
+  assert.equal((await request(`/api/orders/${id}/approve`,'POST',{quoteId:q2.body.order.quote.id},a.cookie)).status,409);
+  assert.equal((await request(`/api/orders/${id}/approve`,'POST',{quoteId:q3.body.order.quote.id},a.cookie)).status,200);
+  assert.equal((await request(`/api/admin/orders/${id}`,'PATCH',{status:'in_progress'},admin.cookie)).status,200);
+  assert.equal((await request(`/api/orders/${id}/messages`,'POST',{body:'Спасибо, согласовано'},a.cookie)).status,201);
+  await app.close();app=createApp(settings);await new Promise(r=>app.server.listen(0,'127.0.0.1',r));base=`http://127.0.0.1:${app.server.address().port}`;
+  const persisted=await request('/api/account','GET',undefined,a.cookie);assert.equal(persisted.status,200);assert.equal(persisted.body.orders[0].quote.total,31000);assert.equal(persisted.body.orders[0].messages[0].body,'Спасибо, согласовано');assert.equal(persisted.body.cars[0].model,'Mercedes-Benz E 200 W213');
+  assert.equal((await request('/api/auth/logout','POST',{},a.cookie)).status,200);assert.equal((await request('/api/account','GET',undefined,a.cookie)).status,401);
+  const response=await fetch(base+'/engine');assert.equal(response.status,200);assert.equal(response.headers.get('x-robots-tag'),'noindex, nofollow');
+ } finally { await app.close();rmSync(dir,{recursive:true,force:true}); }
+});

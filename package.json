@@ -1,0 +1,1 @@
+{"name":"sternoir-mercedes","version":"1.0.0","private":true,"type":"module","scripts":{"start":"node server.mjs","test":"node --test tests/backend.test.mjs","check":"node --check server.mjs && node --check public/app.js && node --check public/portal.js && node --check public/content.js"},"engines":{"node":">=24"}}

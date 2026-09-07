@@ -1,0 +1,8 @@
+.git
+archive
+reports
+tests
+node_modules
+.data
+data
+.env*

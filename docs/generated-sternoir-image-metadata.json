@@ -1,0 +1,44 @@
+{
+  "generation_mode": "built-in image_gen",
+  "fictional": true,
+  "credit_ru": "Визуализация концепции STERNOIR. Пространство и персонажи созданы с помощью ИИ.",
+  "design_bible": {
+    "location": "fictional premium independent Mercedes workshop, Moscow, 450 sqm",
+    "architecture": "tall graphite steel beams, off-white concrete walls, midgray polished lightly worn concrete floor, red two-post lifts, anthracite cabinets with thin red trim, glass-walled warm walnut customer lounge along left",
+    "lighting": "muted daylight, warm white linear industrial lights, warm walnut lounge lighting",
+    "uniform": "charcoal work softshell and trousers, restrained red piping, small embroidered white STERNOIR",
+    "staff": "fictional adults age 30-50, ordinary realistic groomed professionals; technician wears clear protective eyewear and dark nitrile gloves",
+    "cars": "grey luxury Mercedes-like sedan and SUV; no exact model accuracy claim",
+    "reference": "sternoir-workshop-master.png used as actual reference for all other three images"
+  },
+  "assets": [
+    {
+      "name": "sternoir-diagnostics.png",
+      "path": "/workspace/scratch/sternoir-production-assets/generated/sternoir-diagnostics.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2046915
+    },
+    {
+      "name": "sternoir-lounge.png",
+      "path": "/workspace/scratch/sternoir-production-assets/generated/sternoir-lounge.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2344894
+    },
+    {
+      "name": "sternoir-team.png",
+      "path": "/workspace/scratch/sternoir-production-assets/generated/sternoir-team.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1991945
+    },
+    {
+      "name": "sternoir-workshop-master.png",
+      "path": "/workspace/scratch/sternoir-production-assets/generated/sternoir-workshop-master.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2200837
+    }
+  ]
+}
