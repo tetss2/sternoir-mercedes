@@ -46,12 +46,14 @@ Order:
 ```json
 {
   "id": "uuid", "publicId": "SN-2026-ABC12345", "customerId": "uuid or null",
-  "carId": "uuid or null", "name": "Customer", "phone": "+70000000000",
+  "carId": "uuid or null", "carReminderPreference": false, "name": "Customer", "phone": "+70000000000",
   "model": "E 200 W213", "service": "Двигатель", "symptom": "Description",
   "status": "new", "scheduledAt": null, "createdAt": "ISO date", "updatedAt": "ISO date",
   "quote": null, "quotes": [], "messages": [], "events": []
 }
 ```
+
+`carReminderPreference` reflects the current linked car preference only when the car belongs to the order customer; false if no matching car exists. It tells the advisor to discuss reminders and does not mean automated notifications are enabled.
 
 `quote` is the latest estimate; `quotes` contains version history, newest first. Estimate: `{id,version,items:[{title,quantity,unitPrice}],total,note,status,createdAt,approvedAt}`. **All prices are integer Russian rubles.** Quantity is an integer 1–100. Estimate status: `pending`, `approved`, `rejected`, `superseded`. Total is always calculated on the server from line items; a client-provided total is ignored. Approval requires the latest pending quote ID and an authenticated order owner. Approval is not payment. A repeated or stale approval is rejected. Approved estimates and audit events cannot be rewritten or deleted through SQL updates due to database triggers.
 

@@ -21,6 +21,7 @@ export function createApp(options = {}) {
   const publicDir = options.publicDir || resolve(ROOT, 'public');
   const appUrl = options.appUrl || process.env.APP_URL || '';
   const production = options.production ?? process.env.NODE_ENV === 'production';
+  const writesAvailable = !production || (!!process.env.RAILWAY_VOLUME_MOUNT_PATH && resolve(process.env.RAILWAY_VOLUME_MOUNT_PATH) === resolve(dataDir));
   mkdirSync(dataDir, { recursive: true });
   const db = new DatabaseSync(resolve(dataDir, 'sternoir.sqlite'));
   db.exec(`PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON; PRAGMA busy_timeout=5000;
@@ -63,7 +64,7 @@ CREATE TRIGGER IF NOT EXISTS immutable_approved_quote_delete BEFORE DELETE ON qu
   const event = (orderId, actor, type, body) => run('INSERT INTO events VALUES(?,?,?,?,?,?)', uid(), orderId, actor || null, type, body, now());
   const quoteShape = quote => quote ? { id: quote.id, version: quote.version, items: JSON.parse(quote.items), total: quote.total, note: quote.note, status: quote.status, createdAt: quote.created_at, approvedAt: quote.approved_at } : null;
   const latestQuote = id => get('SELECT * FROM quotes WHERE order_id=? ORDER BY version DESC LIMIT 1', id);
-  const orderShape = order => ({ id: order.id, publicId: order.public_id, customerId: order.customer_id, carId: order.car_id, name: order.name, phone: order.phone, model: order.model, service: order.service, symptom: order.symptom, status: order.status, scheduledAt: order.scheduled_at, createdAt: order.created_at, updatedAt: order.updated_at,
+  const orderShape = order => ({ id: order.id, publicId: order.public_id, customerId: order.customer_id, carId: order.car_id, carReminderPreference: !!(order.car_id && order.customer_id && get('SELECT reminders_enabled FROM cars WHERE id=? AND user_id=?', order.car_id, order.customer_id)?.reminders_enabled), name: order.name, phone: order.phone, model: order.model, service: order.service, symptom: order.symptom, status: order.status, scheduledAt: order.scheduled_at, createdAt: order.created_at, updatedAt: order.updated_at,
     quote: quoteShape(latestQuote(order.id)), quotes: all('SELECT * FROM quotes WHERE order_id=? ORDER BY version DESC', order.id).map(quoteShape),
     messages: all('SELECT id,author_role AS authorRole,body,created_at AS createdAt FROM messages WHERE order_id=? ORDER BY rowid', order.id),
     events: all('SELECT id,type,body,created_at AS createdAt FROM events WHERE order_id=? ORDER BY rowid', order.id) });
@@ -83,7 +84,8 @@ CREATE TRIGGER IF NOT EXISTS immutable_approved_quote_delete BEFORE DELETE ON qu
     if (production) res.setHeader('Strict-Transport-Security', 'max-age=31536000');
     try {
       const url = new URL(req.url, 'http://localhost'); const path = decodeURIComponent(url.pathname); const method = req.method;
-      if (path === '/api/health' && method === 'GET') return json(res, 200, { ok: true });
+      if (path === '/api/health' && method === 'GET') return json(res, 200, { ok: true, dataPersistence: writesAvailable });
+      if(path.startsWith('/api/') && !['GET','HEAD'].includes(method) && !writesAvailable) fail(503,'Приём обращений и вход временно недоступны. Сервис завершает подключение защищённого хранилища.');
       if (!path.startsWith('/api/')) {
         if (!['GET','HEAD'].includes(method)) fail(405, 'Метод не поддерживается.');
         let file = resolve(publicDir, `.${path}`);
