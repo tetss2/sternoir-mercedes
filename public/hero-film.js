@@ -1,17 +1,23 @@
 // One decoded video, one continuous scene. On wide displays only the empty
 // woodland to the left is expanded; the car and driver keep their proportions.
-let wantsPlayback;
-
 export function bindHeroFilm(video, control, icon) {
   const surface = video.closest('.hero-film');
   const canvas = surface.querySelector('canvas');
-  const context = canvas.getContext('2d', { alpha: false });
+  let context = null;
   const poster = surface.querySelector('.hero-poster');
   const events = new AbortController();
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  let visible = true, disposed = false, frame = null, lastTime = -1;
+  const compact = matchMedia('(max-width: 1100px)').matches;
+  const touch = matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
+  const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && touch);
+  // In-app browsers can use Safari's user agent. Keep every mobile/iOS entry
+  // poster-only until a gesture, rather than relying on a Telegram UA marker.
+  const manualPlayback = compact || touch || ios || motion.matches || !!navigator.connection?.saveData;
+  const allowPanorama = !compact && !touch && !ios;
+  let wantsPlayback = !manualPlayback;
+  let visible = false, disposed = false, suspended = false, frame = null, lastTime = -1;
+  let pendingPlay = false;
   let width = 0, height = 0, panorama = false;
-  if (wantsPlayback === undefined) wantsPlayback = !motion.matches && !navigator.connection?.saveData;
 
   const listen = (target, event, callback) => target.addEventListener(event, callback, { signal: events.signal });
   const updateControl = () => {
@@ -51,15 +57,20 @@ export function bindHeroFilm(video, control, icon) {
   }
 
   function resize() {
+    if (!allowPanorama || disposed) return;
     const box = surface.getBoundingClientRect();
     // The supplied film is 720p. Cap the canvas to avoid unnecessary GPU work
     // on high-density ultrawide displays while retaining full scene coverage.
     const resolution = Math.min(devicePixelRatio || 1, 1.5, 3840 / Math.max(box.width, 1));
     width = Math.max(1, Math.round(box.width * resolution));
     height = Math.max(1, Math.round(box.height * resolution));
-    panorama = !!context && box.width > 1100 && box.width / box.height > 16 / 9;
+    const wide = box.width > 1100 && box.width / box.height > 16 / 9;
+    // Do not allocate a graphics context for the normal video or mobile view.
+    if (wide && !context) context = canvas.getContext('2d', { alpha: false });
+    panorama = !!context && wide;
     surface.classList.toggle('is-panorama', false);
-    if (panorama) { canvas.width = width; canvas.height = height; draw();if(!video.paused){cancelFrame();nextFrame();} } else cancelFrame();
+    if (panorama) { canvas.width = width; canvas.height = height; draw();if(!video.paused){cancelFrame();nextFrame();} }
+    else { cancelFrame(); canvas.width = 1; canvas.height = 1; }
   }
 
   function cancelFrame() {
@@ -78,9 +89,18 @@ export function bindHeroFilm(video, control, icon) {
 
   function reconcile() {
     if (disposed) return;
-    if (wantsPlayback && visible && !document.hidden) {
-      if (!video.getAttribute('src') && poster.complete) { video.src=matchMedia('(max-width: 1100px)').matches?video.dataset.mobileSrc:video.dataset.desktopSrc;video.load(); }
-      if(video.getAttribute('src'))video.play().catch(updateControl);
+    if (wantsPlayback && visible && !suspended && !document.hidden) {
+      if (!video.getAttribute('src') && (poster.complete || manualPlayback)) {
+        video.src = (compact || touch || ios) ? video.dataset.mobileSrc : video.dataset.desktopSrc;
+      }
+      if (video.getAttribute('src') && video.paused && !pendingPlay) {
+        pendingPlay = true;
+        video.play().catch(() => {
+          // A rejected autoplay must wait for a real click, not retry whenever
+          // an observer or poster event fires in a restricted WKWebView.
+          if (!disposed && visible && !suspended && !document.hidden) wantsPlayback = false;
+        }).finally(() => { pendingPlay = false; if (!disposed) updateControl(); });
+      }
     }
     else video.pause();
     updateControl();
@@ -90,16 +110,38 @@ export function bindHeroFilm(video, control, icon) {
   listen(video, 'pause', () => { cancelFrame(); draw(); updateControl(); });
   listen(video, 'loadeddata', draw);
   listen(video, 'seeked', draw);
-  listen(video, 'error', () => { surface.classList.remove('is-panorama','is-playing'); updateControl(); });
-  listen(control, 'click', () => { wantsPlayback = video.paused; reconcile(); });
+  function releaseMedia() {
+    cancelFrame();
+    video.pause();
+    if (video.getAttribute('src')) { video.removeAttribute('src'); video.load(); }
+    canvas.width = 1; canvas.height = 1;
+    surface.classList.remove('is-panorama', 'is-playing');
+    lastTime = -1;
+  }
+
+  listen(video, 'error', () => { wantsPlayback = false; surface.classList.remove('is-panorama','is-playing'); updateControl(); });
+  listen(control, 'click', () => {
+    wantsPlayback = video.paused;
+    // The control can be visible before IntersectionObserver's first callback.
+    if (wantsPlayback) visible = true;
+    reconcile();
+  });
   listen(document, 'visibilitychange', reconcile);
+  listen(window, 'pagehide', () => {
+    suspended = true;
+    if (manualPlayback) wantsPlayback = false;
+    releaseMedia();
+  });
+  listen(window, 'pageshow', () => { suspended = false; resize(); reconcile(); });
   listen(motion, 'change', () => { if (motion.matches) wantsPlayback = false; reconcile(); });
   const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; reconcile(); }, { threshold: 0.04 });
   observer.observe(surface);
-  const sizeObserver = new ResizeObserver(resize);
-  sizeObserver.observe(surface);
+  const sizeObserver = allowPanorama ? new ResizeObserver(resize) : null;
+  sizeObserver?.observe(surface);
   listen(poster,'load',()=>{if(!disposed){draw();reconcile();}});
   video.muted = true;
+  video.playsInline = true;
+  video.preload = 'none';
   resize();
   reconcile();
 
@@ -108,7 +150,8 @@ export function bindHeroFilm(video, control, icon) {
     cancelFrame();
     events.abort();
     observer.disconnect();
-    sizeObserver.disconnect();
-    video.pause();
+    sizeObserver?.disconnect();
+    releaseMedia();
+    context = null;
   };
 }
