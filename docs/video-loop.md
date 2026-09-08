@@ -1,21 +1,40 @@
-# Hero loop production report
+# G 63 hero film — 8 September 2026
 
-- Input: `Создай_динамичный_фотореалисти.mp4`, 10.005 seconds, 1280 × 720, 24 fps.
-- Output: `hero-loop.mp4`, 3.375 seconds / 81 frames, 1280 × 720, 24 fps, H.264, yuv420p, silent, faststart. File size: 1,479,468 bytes (1.48 MB).
-- Poster: `poster.jpg`, full 1280 × 720 first output frame.
+## Source and delivered media
 
-## Exact trim and seam
+The owner supplied `b71d7224-31b7-41a3-941e-75f1b5247abc.mp4`: a red Mercedes-AMG G 63 already moving along a forest road. The input is 10.005 seconds, 240 frames, 1280 × 720 at 24 fps, with audio; 12,522,116 bytes.
 
-Zero-based input frames 69–161 are the only source frames used, covering timestamps 2.875–6.708333 seconds. Initial stationary wall footage is excluded.
+- `public/assets/hero-g63-loop.mp4`: 205 frames / 8.541667 seconds, 1280 × 720, 24 fps, H.264, yuv420p, silent, faststart, 3,983,459 bytes.
+- `public/assets/hero-g63-poster.webp`: the first output frame, 1280 × 720, 148,546 bytes.
+- The previous `hero-loop.mp4` and `poster.jpg` are no longer referenced by the application.
 
-Output frames 0–68 use source frames 81–149 unchanged in chronological order. Output frames 69–80 blend source frames 150–161 with source frames 69–80, using a linear 12-frame / 0.5-second crossfade: weight of the early segment increases from 0 to 1 inclusive. The final output frame is therefore source frame 80, followed on playback wrap by source frame 81: normal one-frame forward motion at the actual file boundary.
+## Loop construction
 
-The source window was selected after comparing low-resolution blurred car-pose and background differences across candidate intervals. Shorter ~3.4-second periods preserved car pose better than 5-second candidates. Every source segment runs forwards at native speed. No reverse, freeze, spatial shift, zoom, shake, cropping, interpolation, or synthesized frames were added. Full original 16:9 framing is preserved.
+Zero-based output frames 0–195 use source frames 33–228. Output frames 196–204 blend source frames 229–237 with source frames 24–32. A linear crossfade spans 8 frame intervals / 0.333333 seconds. The final image returns to source frame 32, followed at file wrap by source frame 33: normal one-frame forward motion.
 
-## Verification and limits
+All source motion remains forwards at native speed. No reverse playback, freeze, artificial camera movement or spatial crop is encoded into the delivered video. The clip begins with the car already driving; there is no departure from a wall.
 
-Probed encoded file for duration, codec, resolution, frame rate, and 81-frame count. Inspected a labeled-by-order contact sheet of first output frame and seam frames 69, 72, 75, 78, 80 at 640 × 360 each (`seam-inspection.jpg`). The body silhouette stays close enough that there is no strongly separated second car outline in those sampled frames. Native wheel motion and road movement continue forwards.
+```sh
+ffmpeg -i b71d7224-31b7-41a3-941e-75f1b5247abc.mp4 \
+  -filter_complex '[0:v]split=2[body][lead];[body]trim=start_frame=33:end_frame=238,setpts=PTS-STARTPTS[long];[lead]trim=start_frame=24:end_frame=33,setpts=PTS-STARTPTS[head];[long][head]xfade=transition=fade:duration=0.3333333333:offset=8.1666666667,format=yuv420p[v]' \
+  -map '[v]' -an -r 24 -frames:v 205 -c:v libx264 \
+  -preset slow -crf 25 -movflags +faststart hero-g63-loop.mp4
+```
 
-This is an edited loop, not a physically perfect continuous shot. During the brief seam blend, background columns and road markings dissolve between different positions; faint ghosting of wheel spokes, reflections, and background edges remains visible on inspection. The source has mild generated-footage variation in body reflections and wheel detail that this temporal-only edit does not correct. There is no hard file-boundary pose jump, but do not describe the entire transition as mathematically seamless or completely artifact-free.
+The first frame and frames 194, 196, 199, 202 and 204 were visually inspected. A blurred, reduced-resolution car-region comparison puts the final-to-first change at 3.140 on a 0–255 mean-difference scale, within ordinary adjacent-frame variation (median 2.776; 95th percentile 3.493).
 
-CSS fades, page integration, and display sizing are outside this asset task. Use `object-fit: contain` or an exact 16:9 surface to retain the entire source frame.
+The brief blend dissolves background details between positions. Mild generated-source variations in reflections and wheel details remain. This removes the abrupt playback cut; it is not a claim that every transition is physically identical to an unedited continuous shot.
+
+## Full-width presentation
+
+`public/hero.css` removes the former video-shaped masks, side fields and rounded frame. The film fills the hero surface edge to edge. Text shading is confined to the copy area, with a vertical transition into the following section.
+
+On wide desktop surfaces, `public/hero-film.js` draws the same decoded video into one canvas. The car, driver, wheels and shadow remain at their original proportions. Only the empty forest in the left 32% is expanded horizontally with a continuous monotonic mapping that reaches the unmodified image at its native scale. There is no mirrored car or second independently moving video. Canvas resolution is capped at 3840 pixels wide.
+
+On screens up to 1100 pixels wide, the copy sits above a complete 16:9 film. Its sides reach the viewport edges and vertical fades join the surrounding page. If canvas is unavailable, the native video remains visible.
+
+The visible pause control retains the visitor's choice across page navigation. Playback pauses outside the viewport and in hidden tabs; reduced-motion and data-saving preferences initially use the poster. The video is muted and plays inline. All animation callbacks and observers are released on route changes.
+
+## Validation
+
+The actual app and its real styles were inspected in a browser. A temporary iframe harness allowed layout checks at phone, tablet, desktop, 21:9 and 32:9 sizes without weakening the production content-security policy. The harness is excluded from publication. The browser checks cover layout and playback behavior, not physical iOS/Android hardware or GPU benchmarking.

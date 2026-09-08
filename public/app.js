@@ -1,9 +1,10 @@
-import {services,models,questions} from './content.js?v=20260908d';
-import {renderPortal} from './portal.js?v=20260908d';
-import {operations,seasonalPrograms} from './catalog-data.js?v=20260908d';
-import {renderCatalog,bindCatalog} from './catalog-pages.js?v=20260908d';
+import {services,models,questions} from './content.js?v=20260908e';
+import {bindHeroFilm} from './hero-film.js?v=20260908e';
+import {renderPortal} from './portal.js?v=20260908e';
+import {operations,seasonalPrograms} from './catalog-data.js?v=20260908e';
+import {renderCatalog,bindCatalog} from './catalog-pages.js?v=20260908e';
 const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const img=(file,alt,cls='',eager=false)=>`<img src="/assets/${file}" alt="${esc(alt)}" class="${cls}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`;
+const img=(file,alt,cls='',eager=false)=>`<img src="/assets/${file}?v=20260908e" alt="${esc(alt)}" class="${cls}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`;
 const arrow='<svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg>', book=(label='Обсудить ремонт',service='',cls='primary')=>`<button class="button ${cls}" data-book="${esc(service)}">${label}${arrow}</button>`;
 const videoIcon = paused => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${paused?'<path d="m8 5 11 7-11 7Z"/>':'<path d="M8 5v14M16 5v14"/>'}</svg>`;
 const serviceCards=(items=services)=>items.map((s,i)=>`<a class="service-card" href="/services/${s.slug}">${img(s.image,s.name)}<div class="photo-shade"></div><div class="service-label"><span class="index">${String(i+1).padStart(2,'0')}</span><h3>${s.name}</h3><p>${s.short}</p><span class="circle-arrow" aria-hidden="true">${arrow}</span></div></a>`).join('');
@@ -22,14 +23,16 @@ function openBooking(service='',symptom=''){const draft=draftRead();if(service){
 document.addEventListener('click',e=>{const a=e.target.closest('a');if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||a.target||a.hasAttribute('download'))return;const url=new URL(a.href,location.href);if(url.origin!==location.origin||url.hash)return;e.preventDefault();history.pushState({},'',url.pathname+url.search);$('#header').classList.remove('menu-open');window.scrollTo(0,0);render().then(()=>$('#main').focus({preventScroll:true}));});window.addEventListener('popstate',()=>render());
 let navId=0;
 function footer(){document.querySelector('#footer').innerHTML=`<div class="wrap footer-grid"><div><a href="/" class="brand">sternoir<span>MERCEDES-BENZ CLUB SERVICE</span></a><p>Вы за рулём.<br>Мы за спокойствие.</p></div><div><h3>Сервис</h3>${[['/services','Все услуги'],['/pricing','Услуги и стоимость'],['/pre-purchase','Перед покупкой'],['/seasonal','Сезонное обслуживание'],['/amg','Mercedes-AMG'],['/parts','Запчасти и материалы']].map(([u,t])=>`<a href="${u}">${t}</a>`).join('')}</div><div><h3>Владельцу</h3>${[['/models','Модельный ряд'],['/club','Клуб STERNOIR'],['/account','Личный кабинет'],['/process','Как проходит ремонт'],['/guarantee','Условия и гарантия']].map(([u,t])=>`<a href="${u}">${t}</a>`).join('')}</div><div><h3>Знакомство</h3>${[['/about','Пространство и команда'],['/stories','Разборы ситуаций'],['/reviews','Мнение владельцев'],['/journal','Журнал'],['/contacts','Контакты']].map(([u,t])=>`<a href="${u}">${t}</a>`).join('')}</div></div><div class="wrap footer-bottom"><span>© ${new Date().getFullYear()} STERNOIR. Концепция независимого сервиса.</span><a href="/privacy">Обработка данных</a><a href="/credits">Фотографии и авторство</a><a href="/admin">Управление</a></div><p class="wrap trademark">Mercedes-Benz и названия моделей принадлежат их правообладателям. STERNOIR не является официальным дилером Mercedes-Benz.</p>`;}
+let releaseHeroFilm;
 async function render(){
+ releaseHeroFilm?.();releaseHeroFilm=undefined;
  const id=++navId,path=location.pathname.replace(/\/$/,'')||'/';header(path);footer();
  if(path==='/account'||path==='/admin'){document.title=(path==='/admin'?'Управление сервисом':'Мой автомобиль')+' — STERNOIR';$('#main').innerHTML='<div class="wrap section">Загружаем кабинет…</div>';await renderPortal(path,$('#main'));bindBooking();return;}
  const helpers={img,esc,arrow,book,videoIcon,serviceCards,modelCards,faq,sectionHead,cta,process,pageIntro};
  const expanded=renderCatalog(path,helpers);let html=expanded?.html,title=expanded?.title;
  if(!expanded){if(path==='/about'){html=about();title='Пространство и команда';}else if(path==='/privacy'){html=privacy();title='Обработка данных';}else{html=pageIntro('404','Такой страницы<br>нет в маршруте.','Вернитесь к услугам или найдите свой Mercedes.')+`<div class="wrap section"><a class="button primary" href="/services">Все услуги ${arrow}</a></div>`;title='Страница не найдена';}}
  if(id!==navId)return;$('#main').innerHTML=html;document.title=title+' — STERNOIR';bindBooking();bindCatalog();
- const video=$('#heroVideo');if(video){const control=$('.video-control');const set=()=>{control.innerHTML=videoIcon(video.paused);control.setAttribute('aria-label',video.paused?'Включить фоновое видео':'Приостановить фоновое видео');};video.addEventListener('pause',set);video.addEventListener('play',set);if(matchMedia('(prefers-reduced-motion: reduce)').matches||navigator.connection?.saveData){video.autoplay=false;video.pause();}else video.play().catch(set);control.onclick=()=>video.paused?video.play().catch(set):video.pause();set();}
+ const video=$('#heroVideo');if(video)releaseHeroFilm=bindHeroFilm(video,$('.video-control'),videoIcon);
 }
 function pageIntro(k,h,p,image){return `<section class="page-intro wrap ${image?'has-photo':''}"><div><p class="eyebrow">${k}</p><h1>${h}</h1><p class="lead">${p}</p></div>${image?`<div class="intro-photo">${img(image,h.replace(/<br\s*\/?>/g,' '),'',true)}</div>`:''}</section>`;}
 render();
