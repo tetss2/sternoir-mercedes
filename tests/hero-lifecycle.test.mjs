@@ -2,9 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {bindHeroFilm} from '../public/hero-film.js';
 
-// Exercise the actual media controller with browser events. No browser-specific
-// user-agent marker is required for the iPhone/Telegram safety boundary.
-function browserFixture(t, {mobile = true, userAgent = 'iPhone', touch = 5, wide = false, rejectPlay = false} = {}) {
+// Exercise the actual media controller with browser events. Mobile autoplays
+// inline without a canvas; these tests do not simulate the native Telegram app.
+function browserFixture(t, {mobile = true, userAgent = 'iPhone', touch = 5, wide = false, rejectPlay = false, reducedMotion = false} = {}) {
   const calls = {play:0, load:0, context:0, resize:0, frames:0};
   const attrs = new Map();
   const video = new EventTarget();
@@ -31,7 +31,7 @@ function browserFixture(t, {mobile = true, userAgent = 'iPhone', touch = 5, wide
   const control=Object.assign(new EventTarget(), {setAttribute:()=>{},innerHTML:''});
   const doc=Object.assign(new EventTarget(),{hidden:false});
   const win=new EventTarget();
-  const motion=Object.assign(new EventTarget(),{matches:false});
+  const motion=Object.assign(new EventTarget(),{matches:reducedMotion});
   let intersection;
   const globals={
     document:doc,window:win,devicePixelRatio:3,
@@ -50,24 +50,37 @@ function browserFixture(t, {mobile = true, userAgent = 'iPhone', touch = 5, wide
   return {calls,video,poster,control,canvas,win,dispose,visible:()=>intersection([{isIntersecting:true}])};
 }
 
-test('iPhone starts with no media source, decoder or canvas; a click plays and navigation releases it',async t=>{
+test('iPhone shows the poster first, autoplays the mobile film, and navigation releases it',async t=>{
   const f=browserFixture(t);
-  f.visible();f.poster.dispatchEvent(new Event('load'));
+  f.poster.complete=false;f.visible();
   assert.equal(f.video.src,'');assert.equal(f.calls.play,0);assert.equal(f.calls.load,0);
   assert.equal(f.calls.context,0);assert.equal(f.calls.resize,0);assert.equal(f.calls.frames,0);
-  f.control.dispatchEvent(new Event('click'));await Promise.resolve();
+  f.poster.complete=true;f.poster.dispatchEvent(new Event('load'));await new Promise(resolve=>setImmediate(resolve));
   assert.equal(f.video.src,'/mobile.mp4');assert.equal(f.calls.play,1);assert.equal(f.calls.context,0);
-  f.dispose();assert.equal(f.video.src,'');assert.equal(f.video.paused,true);assert.equal(f.calls.load,1);
-  f.poster.dispatchEvent(new Event('load'));assert.equal(f.calls.play,1);
+  assert.equal(f.video.autoplay,true);assert.equal(f.video.muted,true);assert.equal(f.video.playsInline,true);
+  f.win.dispatchEvent(new Event('pagehide'));assert.equal(f.video.src,'');assert.equal(f.video.autoplay,false);
+  f.win.dispatchEvent(new Event('pageshow'));await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(f.video.src,'/mobile.mp4');assert.equal(f.calls.play,2);assert.equal(f.video.paused,false);
+  f.control.dispatchEvent(new Event('click'));assert.equal(f.video.paused,true);
+  f.visible();f.poster.dispatchEvent(new Event('load'));assert.equal(f.calls.play,2);
+  f.dispose();assert.equal(f.video.src,'');assert.equal(f.video.paused,true);assert.equal(f.calls.load,2);
+  f.poster.dispatchEvent(new Event('load'));assert.equal(f.calls.play,2);
 });
 
-test('an iOS webview with a wide viewport remains manual and a slow poster never consumes the play gesture',async t=>{
+test('an iOS webview with a wide viewport uses no canvas and a slow poster never consumes the play gesture',async t=>{
   const f=browserFixture(t,{mobile:false,touch:0,userAgent:'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15',wide:true});
   f.poster.complete=false;f.visible();assert.equal(f.video.src,'');assert.equal(f.calls.context,0);
-  f.control.dispatchEvent(new Event('click'));await Promise.resolve();
+  f.control.dispatchEvent(new Event('click'));await new Promise(resolve=>setImmediate(resolve));
   assert.equal(f.video.src,'/mobile.mp4');assert.equal(f.calls.play,1);
   f.win.dispatchEvent(new Event('pagehide'));assert.equal(f.video.src,'');assert.equal(f.canvas.width,1);
-  f.win.dispatchEvent(new Event('pageshow'));f.visible();assert.equal(f.video.src,'');assert.equal(f.calls.play,1);
+  f.win.dispatchEvent(new Event('pageshow'));f.visible();assert.equal(f.video.src,'/mobile.mp4');assert.equal(f.calls.play,2);
+});
+
+test('reduced motion keeps the poster until the visitor chooses to play',async t=>{
+  const f=browserFixture(t,{reducedMotion:true});
+  f.visible();assert.equal(f.video.src,'');assert.equal(f.calls.play,0);assert.equal(f.video.autoplay,false);
+  f.control.dispatchEvent(new Event('click'));await Promise.resolve();
+  assert.equal(f.video.src,'/mobile.mp4');assert.equal(f.calls.play,1);
 });
 
 test('desktop autoplay rejection does not cause repeated play requests from observers',async t=>{

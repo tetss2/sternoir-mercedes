@@ -1,9 +1,9 @@
 import {renderBasic} from './basic-pages.js?v=20260908-mobile';
 import {ensureDemo} from './demo-session.js?v=20260908-mobile';
 import {services,models,questions} from './content.js?v=20260908-mobile';
-import {bindHeroFilm} from './hero-film.js?v=20260908-ios1';
+import {bindHeroFilm} from './hero-film.js?v=20260908-auto2';
 import {operations,seasonalPrograms} from './catalog-data.js?v=20260908-mobile';
-import {renderCatalog,bindCatalog} from './catalog-pages.js?v=20260908-ios1';
+import {renderCatalog,bindCatalog} from './catalog-pages.js?v=20260908-auto2';
 import {img,esc,arrow,book,videoIcon,serviceCards,modelCards,faq,sectionHead,cta,process,pageIntro,headerMarkup,footerMarkup} from './ui.js?v=20260908-mobile';
 const $=s=>document.querySelector(s);
 function header(path){$('#header').innerHTML=headerMarkup(path);$('.menu-toggle').onclick=e=>{const b=e.currentTarget,open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',open);b.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');$('#header').classList.toggle('menu-open',open);};}

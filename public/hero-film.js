@@ -10,11 +10,12 @@ export function bindHeroFilm(video, control, icon) {
   const compact = matchMedia('(max-width: 1100px)').matches;
   const touch = matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
   const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && touch);
-  // In-app browsers can use Safari's user agent. Keep every mobile/iOS entry
-  // poster-only until a gesture, rather than relying on a Telegram UA marker.
-  const manualPlayback = compact || touch || ios || motion.matches || !!navigator.connection?.saveData;
+  // Mobile uses the lightweight film and the native inline video surface.
+  // Device type must not disable autoplay; keep the user's motion/data choice.
+  const reducedPlayback = motion.matches || !!navigator.connection?.saveData;
   const allowPanorama = !compact && !touch && !ios;
-  let wantsPlayback = !manualPlayback;
+  let wantsPlayback = !reducedPlayback;
+  let gesturePlayback = false;
   let visible = false, disposed = false, suspended = false, frame = null, lastTime = -1;
   let pendingPlay = false;
   let width = 0, height = 0, panorama = false;
@@ -89,8 +90,11 @@ export function bindHeroFilm(video, control, icon) {
 
   function reconcile() {
     if (disposed) return;
-    if (wantsPlayback && visible && !suspended && !document.hidden) {
-      if (!video.getAttribute('src') && (poster.complete || manualPlayback)) {
+    video.autoplay = wantsPlayback && visible && !suspended && !document.hidden;
+    if (video.autoplay) {
+      // Let the lightweight poster arrive first. A real play gesture can start
+      // the film immediately even while that image is still downloading.
+      if (!video.getAttribute('src') && (poster.complete || gesturePlayback)) {
         video.src = (compact || touch || ios) ? video.dataset.mobileSrc : video.dataset.desktopSrc;
       }
       if (video.getAttribute('src') && video.paused && !pendingPlay) {
@@ -98,7 +102,10 @@ export function bindHeroFilm(video, control, icon) {
         video.play().catch(() => {
           // A rejected autoplay must wait for a real click, not retry whenever
           // an observer or poster event fires in a restricted WKWebView.
-          if (!disposed && visible && !suspended && !document.hidden) wantsPlayback = false;
+          if (!disposed && visible && !suspended && !document.hidden) {
+            wantsPlayback = false;
+            video.autoplay = false;
+          }
         }).finally(() => { pendingPlay = false; if (!disposed) updateControl(); });
       }
     }
@@ -112,6 +119,7 @@ export function bindHeroFilm(video, control, icon) {
   listen(video, 'seeked', draw);
   function releaseMedia() {
     cancelFrame();
+    video.autoplay = false;
     video.pause();
     if (video.getAttribute('src')) { video.removeAttribute('src'); video.load(); }
     canvas.width = 1; canvas.height = 1;
@@ -119,17 +127,16 @@ export function bindHeroFilm(video, control, icon) {
     lastTime = -1;
   }
 
-  listen(video, 'error', () => { wantsPlayback = false; surface.classList.remove('is-panorama','is-playing'); updateControl(); });
+  listen(video, 'error', () => { wantsPlayback = false; video.autoplay = false; surface.classList.remove('is-panorama','is-playing'); updateControl(); });
   listen(control, 'click', () => {
     wantsPlayback = video.paused;
     // The control can be visible before IntersectionObserver's first callback.
-    if (wantsPlayback) visible = true;
+    if (wantsPlayback) { visible = true; gesturePlayback = true; }
     reconcile();
   });
   listen(document, 'visibilitychange', reconcile);
   listen(window, 'pagehide', () => {
     suspended = true;
-    if (manualPlayback) wantsPlayback = false;
     releaseMedia();
   });
   listen(window, 'pageshow', () => { suspended = false; resize(); reconcile(); });
