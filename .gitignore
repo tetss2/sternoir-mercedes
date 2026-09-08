@@ -5,3 +5,9 @@ data/
 .env.*
 *.sqlite*
 *.db*
+
+public/assets/mobile-v1/
+public/pages/
+public/site.css
+
+public/qa-mobile.*

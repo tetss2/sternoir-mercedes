@@ -23,7 +23,8 @@
   overflow: hidden;
 }
 .hero-film video,
-.hero-film canvas {
+.hero-film canvas,
+.hero-film .hero-poster {
   display: block;
   position: absolute;
   inset: 0;
@@ -95,3 +96,17 @@
   .hero-bottom > span { font-size: 8px; }
   .video-control { width: 36px; height: 36px; }
 }
+
+.hero-film .hero-poster{z-index:1;opacity:1;transition:opacity .2s}
+.hero-film.is-playing .hero-poster,.hero-film.is-panorama .hero-poster{opacity:0}
+.hero-film::after{z-index:2}
+picture.responsive-photo{display:contents}
+.studio-credit{font-size:13px;color:#a9a7a2;margin-top:20px}
+.studio-credit a{color:#dbdad5;text-decoration:underline;text-underline-offset:4px}
+.demo-banner{border:1px solid #595652;border-radius:18px;padding:18px 22px;margin-bottom:30px;background:#222222;display:flex;gap:24px;align-items:center;justify-content:space-between}
+.demo-banner strong{font-size:16px;color:#f2f0eb}
+.demo-banner p{font-size:13px;line-height:1.6;margin:7px 0 0;color:#b7b4ae;max-width:630px}
+.demo-banner nav{display:flex;flex-wrap:wrap;gap:10px;min-width:230px}
+.demo-banner nav a,.demo-banner nav button{border:1px solid #77716c;border-radius:30px;padding:10px 14px;color:#eee9e2;background:transparent;font:inherit;font-size:13px;cursor:pointer;text-decoration:none}
+.demo-banner nav a[aria-current]{background:#ce2437;border-color:#ce2437;color:white}
+@media(max-width:800px){.demo-banner{display:block;padding:17px}.demo-banner nav{margin-top:14px;min-width:0}.demo-banner nav a,.demo-banner nav button{font-size:12px;padding:10px 12px}.portal-quote td{font-size:12px}}

@@ -1,4 +1,6 @@
 import http from 'node:http';
+import {serveFile} from './static-files.mjs';
+import {createDemoRouter} from './demo-router.mjs';
 import { DatabaseSync } from 'node:sqlite';
 import { randomBytes, randomUUID, scryptSync, timingSafeEqual, createHash } from 'node:crypto';
 import { mkdirSync, existsSync, readFileSync, statSync } from 'node:fs';
@@ -21,7 +23,8 @@ export function createApp(options = {}) {
   const publicDir = options.publicDir || resolve(ROOT, 'public');
   const appUrl = options.appUrl || process.env.APP_URL || '';
   const production = options.production ?? process.env.NODE_ENV === 'production';
-  const writesAvailable = !production || (!!process.env.RAILWAY_VOLUME_MOUNT_PATH && resolve(process.env.RAILWAY_VOLUME_MOUNT_PATH) === resolve(dataDir));
+  const demo = options.demo === true;
+  const writesAvailable = demo || !production || (!!process.env.RAILWAY_VOLUME_MOUNT_PATH && resolve(process.env.RAILWAY_VOLUME_MOUNT_PATH) === resolve(dataDir));
   mkdirSync(dataDir, { recursive: true });
   const db = new DatabaseSync(resolve(dataDir, 'sternoir.sqlite'));
   db.exec(`PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON; PRAGMA busy_timeout=5000;
@@ -43,8 +46,8 @@ CREATE TRIGGER IF NOT EXISTS immutable_approved_quote_delete BEFORE DELETE ON qu
   const all = (sql, ...args) => db.prepare(sql).all(...args);
   const run = (sql, ...args) => db.prepare(sql).run(...args);
   const transaction = work => { db.exec('BEGIN IMMEDIATE'); try { const result = work(); db.exec('COMMIT'); return result; } catch (error) { db.exec('ROLLBACK'); throw error; } };
-  const adminEmail = clean(options.adminEmail || process.env.ADMIN_EMAIL).toLowerCase();
-  const adminPassword = options.adminPassword || process.env.ADMIN_PASSWORD;
+  const adminEmail = clean(options.adminEmail || (!demo && process.env.ADMIN_EMAIL)).toLowerCase();
+  const adminPassword = options.adminPassword || (!demo && process.env.ADMIN_PASSWORD);
   if (adminEmail && adminPassword) {
     if (adminPassword.length < 14) throw new Error('ADMIN_PASSWORD must contain at least 14 characters');
     const existing = get('SELECT * FROM users WHERE email=?', adminEmail);
@@ -78,13 +81,16 @@ CREATE TRIGGER IF NOT EXISTS immutable_approved_quote_delete BEFORE DELETE ON qu
   const json = (res, status, data) => { res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(data)); };
   const transitions = { new:['contacted','scheduled','cancelled'], contacted:['scheduled','diagnostics','cancelled'], scheduled:['diagnostics','cancelled'], diagnostics:['awaiting_approval','cancelled'], awaiting_approval:['in_progress','diagnostics','cancelled'], in_progress:['ready','diagnostics'], ready:['completed','in_progress'], completed:[], cancelled:[] };
   const statusNames = {new:'Новая заявка',contacted:'Связались с клиентом',scheduled:'Визит подтверждён',diagnostics:'Диагностика',awaiting_approval:'Согласование сметы',in_progress:'В работе',ready:'Готов к выдаче',completed:'Завершён',cancelled:'Отменён'};
+  const demoRouter = demo ? null : createDemoRouter({createApp,dataDir,publicDir,appUrl,production,rate});
   const server = http.createServer(async (req, res) => {
-    res.setHeader('X-Content-Type-Options', 'nosniff'); res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin'); res.setHeader('X-Frame-Options', 'DENY'); res.setHeader('X-Robots-Tag', 'noindex, nofollow');
-    res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'");
+    res.setHeader('X-Content-Type-Options', 'nosniff'); res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin'); res.setHeader('X-Frame-Options', production ? 'DENY' : 'SAMEORIGIN'); res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'".replace("frame-ancestors 'none'",production?"frame-ancestors 'none'":"frame-ancestors 'self'"));
     if (production) res.setHeader('Strict-Transport-Security', 'max-age=31536000');
     try {
       const url = new URL(req.url, 'http://localhost'); const path = decodeURIComponent(url.pathname); const method = req.method;
-      if (path === '/api/health' && method === 'GET') return json(res, 200, { ok: true, dataPersistence: writesAvailable });
+      if (demoRouter && path.startsWith('/api/demo/')) return await demoRouter.handle(req,res,path);
+      if (demo && path.startsWith('/api/auth/') && path!=='/api/auth/me') fail(403,'В тестовом режиме используйте переключатель кабинетов.');
+      if (path === '/api/health' && method === 'GET') return json(res, 200, { ok: true, dataPersistence: !demo && writesAvailable, demoAvailable: true });
       if(path.startsWith('/api/') && !['GET','HEAD'].includes(method) && !writesAvailable) fail(503,'Приём обращений и вход временно недоступны. Сервис завершает подключение защищённого хранилища.');
       if (!path.startsWith('/api/')) {
         if (!['GET','HEAD'].includes(method)) fail(405, 'Метод не поддерживается.');
@@ -92,21 +98,18 @@ CREATE TRIGGER IF NOT EXISTS immutable_approved_quote_delete BEFORE DELETE ON qu
         if (file !== publicDir && !file.startsWith(publicDir + sep)) fail(404, 'Страница не найдена.');
         if (!existsSync(file) || statSync(file).isDirectory()) {
           if (extname(path)) fail(404, 'Файл не найден.');
-          file = resolve(publicDir, 'index.html');
+          const page=resolve(publicDir,'pages',path.slice(1)+'.html');
+          file=existsSync(page)?page:resolve(publicDir,'index.html');
         }
         if (!existsSync(file)) fail(404, 'Страница не найдена.');
-        const type = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.woff':'font/woff','.woff2':'font/woff2','.mp4':'video/mp4','.webm':'video/webm','.ico':'image/x-icon','.txt':'text/plain; charset=utf-8'}[extname(file)] || 'application/octet-stream';
-        const stat = statSync(file); res.setHeader('Content-Type', type); res.setHeader('Cache-Control', type.startsWith('text/html') ? 'no-cache' : 'public, max-age=3600');
-        const range = req.headers.range?.match(/^bytes=(\d+)-(\d*)$/);
-        if (range) { const start = Number(range[1]), end = Math.min(Number(range[2] || stat.size - 1), stat.size - 1); if (start > end || start >= stat.size) { res.writeHead(416, {'Content-Range':`bytes */${stat.size}`}); return res.end(); } res.writeHead(206, { 'Content-Range': `bytes ${start}-${end}/${stat.size}`, 'Accept-Ranges':'bytes', 'Content-Length':end-start+1 }); return res.end(method === 'HEAD' ? undefined : readFileSync(file).subarray(start, end+1)); }
-        res.writeHead(200, { 'Content-Length':stat.size, 'Accept-Ranges':'bytes' }); return res.end(method === 'HEAD' ? undefined : readFileSync(file));
+        return serveFile(req,res,file);
       }
       if (!['GET','POST','PATCH','DELETE'].includes(method)) fail(405, 'Метод не поддерживается.');
       if (method !== 'GET') {
         const expected = appUrl ? new URL(appUrl).origin : `${production ? 'https' : 'http'}://${req.headers.host}`;
         if (req.headers.origin !== expected || req.headers['sec-fetch-site'] === 'cross-site') fail(403, 'Запрос должен быть отправлен с сайта сервиса.');
       }
-      const user = sessionUser(req);
+      const user = demo && ['customer','admin'].includes(req.demoRole) ? get('SELECT * FROM users WHERE role=? LIMIT 1',req.demoRole) : sessionUser(req);
       if (path === '/api/auth/me' && method === 'GET') return json(res, 200, { user: publicUser(user) });
       const body = method !== 'GET' ? await readBody(req) : {};
       if (path === '/api/auth/register' && method === 'POST') {
@@ -127,7 +130,8 @@ CREATE TRIGGER IF NOT EXISTS immutable_approved_quote_delete BEFORE DELETE ON qu
       }
       if (path === '/api/auth/logout' && method === 'POST') { const token = req.headers.cookie?.match(/(?:^|;\s*)sternoir_session=([a-f0-9]{64})(?:;|$)/)?.[1]; if (token) run('DELETE FROM sessions WHERE token_hash=?', sha(token)); res.setHeader('Set-Cookie', `sternoir_session=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0${production?'; Secure':''}`); return json(res, 200, { ok:true }); }
       if (path === '/api/bookings' && method === 'POST') {
-        rate(req, 'booking', 10, 3600000);
+        rate(req, 'booking', demo ? 30 : 10, 3600000);
+        if(demo && get('SELECT COUNT(*) AS n FROM orders').n>=40)fail(429,'Для нового теста нажмите «Начать заново» в кабинете.');
         const name = clean(body.name, 100), phone = clean(body.phone, 40), model = clean(body.model, 100), service = clean(body.service, 160), symptom = clean(body.symptom, 3000);
         if (name.length < 2 || phone.replace(/\D/g,'').length < 10 || !model || !service || body.consent !== true) fail(400, 'Укажите имя, телефон, модель, услугу и согласие на обработку заявки.');
         let carId = null; if (body.carId) { requireUser(user); const car = get('SELECT id FROM cars WHERE id=? AND user_id=?', clean(body.carId, 64), user.id); if (!car) fail(404, 'Автомобиль не найден.'); carId = car.id; }
@@ -181,6 +185,6 @@ CREATE TRIGGER IF NOT EXISTS immutable_approved_quote_delete BEFORE DELETE ON qu
     } catch(error) { if (!res.headersSent) json(res,error.status||500,{error:error.status?error.message:'Не удалось обработать запрос. Повторите позже.'}); else res.end(); if (!error.status) console.error('Request failed:', error.code || error.name); }
   });
   server.requestTimeout=15000;server.headersTimeout=10000;
-  return {server,db,close:()=>new Promise(resolveClose=>server.close(()=>{db.close();resolveClose();}))};
+  return {server,db,close:()=>new Promise(resolveClose=>server.close(()=>{demoRouter?.close();db.close();resolveClose();}))};
 }
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) { const app=createApp();app.server.listen(Number(process.env.PORT||3000),'0.0.0.0',()=>console.log('STERNOIR server ready'));for(const signal of ['SIGTERM','SIGINT'])process.once(signal,()=>app.close().then(()=>process.exit(0))); }

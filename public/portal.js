@@ -1,3 +1,4 @@
+import {ensureDemo} from './demo-session.js?v=20260908-mobile';
 const STATUS = {
   new: 'Новая заявка', contacted: 'Связываемся с вами', scheduled: 'Визит назначен',
   diagnostics: 'Диагностика', awaiting_approval: 'Ждём согласования',
@@ -26,7 +27,10 @@ function localDate(value) {
 }
 
 export async function renderPortal(path, mount) {
-  const admin = path.startsWith('/admin');
+  const demo=path.startsWith('/demo/');
+  const admin=path==='/demo/admin'||path.startsWith('/admin');
+  const call=api;
+  const demoApi=(url,method,data)=>call(demo?'/api/demo/'+(admin?'admin':'customer')+url.slice(4):url,method,data);
   const state = { user: null, data: null, selected: null, auth: 'login', filter: 'active', search: '', notice: '', error: '', addingCar: false, booking: false, hasUpdates: false };
   mount.innerHTML = '<section class="portal"><div class="portal-loading" role="status">Открываем кабинет…</div></section>';
   let portalRoot = mount.firstElementChild;
@@ -38,7 +42,7 @@ export async function renderPortal(path, mount) {
       if (document.hidden || pollBusy) return;
       pollBusy = true;
       try {
-        const current = await api(admin ? '/api/admin' : '/api/account');
+        const current = await demoApi(admin ? '/api/admin' : '/api/account');
         if (portalRoot?.isConnected && JSON.stringify(current) !== snapshot) {
           state.hasUpdates = true;
           const notice = mount.querySelector('[data-updates]');
@@ -70,8 +74,8 @@ export async function renderPortal(path, mount) {
   async function refreshPreservingDrafts() { const drafts=captureDrafts(); await reload(); restoreDrafts(drafts); }
   function notify(message, error = false) { state[error ? 'error' : 'notice'] = message; draw(); mount.querySelector('.portal-alert')?.focus(); }
   async function reload() {
-    const result = await api('/api/auth/me'); state.user = result.user;
-    if (state.user && (!admin || state.user.role === 'admin')) state.data = await api(admin ? '/api/admin' : '/api/account');
+    const result = await demoApi('/api/auth/me'); state.user = result.user;
+    if (state.user && (!admin || state.user.role === 'admin')) state.data = await demoApi(admin ? '/api/admin' : '/api/account');
     else state.data = null;
     state.hasUpdates = false;
     snapshot = state.data ? JSON.stringify(state.data) : '';
@@ -81,7 +85,7 @@ export async function renderPortal(path, mount) {
   function flash() { return `${state.error ? `<div class="portal-alert is-error" role="alert" tabindex="-1">${esc(state.error)}<button type="button" data-dismiss="error" aria-label="Закрыть сообщение">×</button></div>` : ''}${state.notice ? `<div class="portal-alert" role="status" tabindex="-1">${esc(state.notice)}<button type="button" data-dismiss="notice" aria-label="Закрыть сообщение">×</button></div>` : ''}`; }
   function authView() {
     const register = !admin && state.auth === 'register';
-    return `<div class="portal-auth-layout"><div class="portal-intro"><p class="portal-eyebrow">STERNOIR / ${admin ? 'Управление сервисом' : 'Личный кабинет'}</p><h1>${admin ? 'Весь сервис.<br>Под контролем.' : 'Ваш Mercedes.<br>Всё по делу.'}</h1><p>${admin ? 'Обращения, запись на ремонт и согласования в одном рабочем пространстве.' : 'Записывайтесь в сервис, согласовывайте стоимость и следите за ремонтом без лишних звонков.'}</p><ol class="portal-benefits"><li><span>01</span>${admin ? 'Новые обращения не теряются' : 'Автомобили и история обращений'}</li><li><span>02</span>${admin ? 'Смета и статус по каждому заказу' : 'Понятная смета до начала работ'}</li><li><span>03</span>${admin ? 'Переписка рядом с заказом' : 'Прямой диалог с сервисом'}</li></ol><div class="portal-auth-photo"><img src="/assets/e-w212-facelift-front.webp" alt="Mercedes-Benz E-Класса" loading="lazy" width="1200" height="750"></div><a class="portal-text-link" href="/">На главную ${icon}</a></div><div class="portal-auth-card">${!admin ? `<div class="portal-tabs" aria-label="Вход или регистрация"><button type="button" data-auth="login" class="${!register ? 'is-active' : ''}" aria-pressed="${!register}">Войти</button><button type="button" data-auth="register" class="${register ? 'is-active' : ''}" aria-pressed="${register}">Создать кабинет</button></div>` : '<p class="portal-eyebrow">Доступ для команды</p>'}<h2>${register ? 'Будем знакомы' : 'С возвращением'}</h2>${flash()}<form data-form="auth">${register ? '<label>Как к вам обращаться<input name="name" autocomplete="name" minlength="2" maxlength="100" required placeholder="Ваше имя"></label><label>Телефон<input name="phone" autocomplete="tel" type="tel" maxlength="30" placeholder="+7 …"></label>' : ''}<label>Электронная почта<input name="email" autocomplete="email" type="email" maxlength="254" required placeholder="name@example.ru"></label><label>Пароль<input name="password" type="password" autocomplete="${register ? 'new-password' : 'current-password'}" minlength="${register ? '10' : '1'}" maxlength="128" required ${register ? 'aria-describedby="password-help"' : ''}></label>${register ? '<p id="password-help" class="portal-hint">Не менее 10 символов. Используйте уникальный пароль.</p><label class="portal-check"><input type="checkbox" name="consent" required><span>Принимаю <a href="/privacy" target="_blank" rel="noopener">условия обработки персональных данных</a>.</span></label>' : ''}<button class="portal-button" type="submit">${register ? 'Создать кабинет' : 'Войти'} ${icon}</button></form><p class="portal-hint">${admin ? 'Вход доступен только сотрудникам с правами администратора.' : 'Если записывались без входа, попросите сервис связать обращение с вашим кабинетом.'}</p></div></div>`;
+    return `<div class="portal-auth-layout"><div class="portal-intro"><p class="portal-eyebrow">STERNOIR / ${admin ? 'Управление сервисом' : 'Личный кабинет'}</p><h1>${admin ? 'Весь сервис.<br>Под контролем.' : 'Ваш Mercedes.<br>Всё по делу.'}</h1><p>${admin ? 'Обращения, запись на ремонт и согласования в одном рабочем пространстве.' : 'Записывайтесь в сервис, согласовывайте стоимость и следите за ремонтом без лишних звонков.'}</p><ol class="portal-benefits"><li><span>01</span>${admin ? 'Новые обращения не теряются' : 'Автомобили и история обращений'}</li><li><span>02</span>${admin ? 'Смета и статус по каждому заказу' : 'Понятная смета до начала работ'}</li><li><span>03</span>${admin ? 'Переписка рядом с заказом' : 'Прямой диалог с сервисом'}</li></ol><div class="portal-auth-photo"><img src="/assets/e-w212-facelift-front.webp" alt="Mercedes-Benz E-Класса" loading="lazy" width="1200" height="750"></div><a class="portal-text-link" href="/">На главную ${icon}</a></div><div class="portal-auth-card"><a class="portal-button is-small" href="${admin?'/demo/admin':'/demo/customer'}">Попробовать без регистрации ${icon}</a><p class="portal-hint">Тестовый кабинет с готовым автомобилем, записью и сметой.</p>${!admin ? `<div class="portal-tabs" aria-label="Вход или регистрация"><button type="button" data-auth="login" class="${!register ? 'is-active' : ''}" aria-pressed="${!register}">Войти</button><button type="button" data-auth="register" class="${register ? 'is-active' : ''}" aria-pressed="${register}">Создать кабинет</button></div>` : '<p class="portal-eyebrow">Доступ для команды</p>'}<h2>${register ? 'Будем знакомы' : 'С возвращением'}</h2>${flash()}<form data-form="auth">${register ? '<label>Как к вам обращаться<input name="name" autocomplete="name" minlength="2" maxlength="100" required placeholder="Ваше имя"></label><label>Телефон<input name="phone" autocomplete="tel" type="tel" maxlength="30" placeholder="+7 …"></label>' : ''}<label>Электронная почта<input name="email" autocomplete="email" type="email" maxlength="254" required placeholder="name@example.ru"></label><label>Пароль<input name="password" type="password" autocomplete="${register ? 'new-password' : 'current-password'}" minlength="${register ? '10' : '1'}" maxlength="128" required ${register ? 'aria-describedby="password-help"' : ''}></label>${register ? '<p id="password-help" class="portal-hint">Не менее 10 символов. Используйте уникальный пароль.</p><label class="portal-check"><input type="checkbox" name="consent" required><span>Принимаю <a href="/privacy" target="_blank" rel="noopener">условия обработки персональных данных</a>.</span></label>' : ''}<button class="portal-button" type="submit">${register ? 'Создать кабинет' : 'Войти'} ${icon}</button></form><p class="portal-hint">${admin ? 'Вход доступен только сотрудникам с правами администратора.' : 'Если записывались без входа, попросите сервис связать обращение с вашим кабинетом.'}</p></div></div>`;
   }
   function orderCard(order) {
     return `<button class="portal-order ${String(state.selected) === String(order.id) ? 'is-selected' : ''}" data-order="${esc(order.id)}" aria-pressed="${String(state.selected) === String(order.id)}"><span class="portal-order-top"><span class="portal-order-number">${esc(order.publicId || `№ ${order.id}`)}</span><span class="portal-status status-${esc(order.status)}">${esc(orderLabel(order))}</span></span><strong>${esc(order.model || 'Mercedes-Benz')}</strong><span>${esc(service(order.service))}</span><span class="portal-order-bottom"><span>${esc(admin ? order.name : date(order.createdAt))}</span><span>${order.quote ? money(order.quote.total) : 'Смета впереди'}</span></span></button>`;
@@ -122,19 +126,20 @@ export async function renderPortal(path, mount) {
   }
   function dashboard() {
     const all = state.data.orders || [];
-    return `<div class="portal-heading"><div><p class="portal-eyebrow">STERNOIR / ${admin ? 'Кабинет администратора' : 'Личный кабинет'}</p><h1>${admin ? 'Сервис под контролем' : 'Ваш Mercedes'}</h1><p>${admin ? 'От первого обращения до выдачи автомобиля.' : 'Ваши автомобили, стоимость работ и ход ремонта.'}</p></div><div class="portal-heading-actions">${!admin ? '<button type="button" class="portal-button" data-toggle-booking>Записаться <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></button>' : ''}<button type="button" class="portal-text-button" data-logout>Выйти</button></div></div>${flash()}<div class="portal-update-notice" data-updates role="status" ${state.hasUpdates ? '' : 'hidden'}><span>Есть обновления</span><button type="button" class="portal-text-button" data-refresh>Обновить кабинет ↻</button></div>${admin ? `<div class="portal-metrics">${[['new','Новые обращения',all.filter(o=>o.status==='new').length],['awaiting_approval','Этап согласования',all.filter(o=>o.status==='awaiting_approval').length],['in_progress','Автомобили в работе',all.filter(o=>o.status==='in_progress').length],['ready','Готовы к выдаче',all.filter(o=>o.status==='ready').length]].map(([key,title,count])=>`<button type="button" data-filter="${key}" aria-label="${title}: ${count}"><span>${title}</span><strong>${String(count).padStart(2,'0')}</strong><span aria-hidden="true"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button>`).join('')}</div>` : `${bookingView()}${garageView()}`}${ordersView()}`;
+    return `<div class="portal-heading"><div><p class="portal-eyebrow">STERNOIR / ${admin ? 'Кабинет администратора' : 'Личный кабинет'}</p><h1>${admin ? 'Сервис под контролем' : 'Ваш Mercedes'}</h1><p>${admin ? 'От первого обращения до выдачи автомобиля.' : 'Ваши автомобили, стоимость работ и ход ремонта.'}</p></div><div class="portal-heading-actions">${!admin ? '<button type="button" class="portal-button" data-toggle-booking>Записаться <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></button>' : ''}${demo?'<a class="portal-text-link" href="/">На сайт</a>':'<button type="button" class="portal-text-button" data-logout>Выйти</button>'}</div></div>${flash()}<div class="portal-update-notice" data-updates role="status" ${state.hasUpdates ? '' : 'hidden'}><span>Есть обновления</span><button type="button" class="portal-text-button" data-refresh>Обновить кабинет ↻</button></div>${admin ? `<div class="portal-metrics">${[['new','Новые обращения',all.filter(o=>o.status==='new').length],['awaiting_approval','Этап согласования',all.filter(o=>o.status==='awaiting_approval').length],['in_progress','Автомобили в работе',all.filter(o=>o.status==='in_progress').length],['ready','Готовы к выдаче',all.filter(o=>o.status==='ready').length]].map(([key,title,count])=>`<button type="button" data-filter="${key}" aria-label="${title}: ${count}"><span>${title}</span><strong>${String(count).padStart(2,'0')}</strong><span aria-hidden="true"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button>`).join('')}</div>` : `${bookingView()}${garageView()}`}${ordersView()}`;
   }
   function draw() {
     if (!mount.isConnected || !portalRoot?.isConnected) return;
-    mount.innerHTML = `<section class="portal">${!state.user ? authView() : admin && state.user.role !== 'admin' ? `<div class="portal-empty"><p class="portal-eyebrow">Доступ ограничен</p><h1>Этот кабинет — для команды сервиса</h1><p>Вы вошли как ${esc(state.user.email)}. Управление заказами доступно администратору.</p><a class="portal-button is-small" href="/account">Мой кабинет <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a><button type="button" data-logout class="portal-text-button">Выйти из аккаунта</button>${flash()}</div>` : state.data ? dashboard() : `<div class="portal-empty"><h2>Не удалось загрузить кабинет</h2>${flash()}<button type="button" data-refresh class="portal-button is-small">Повторить ↻</button><button data-logout type="button" class="portal-text-button">Выйти</button></div>`}</section>`;
+    mount.innerHTML = `<section class="portal">${demo?`<aside class="demo-banner"><div><strong>Рабочая демонстрация</strong><p>Запись, смета и переписка сохраняются в вашем тесте. Реальный визит не создаётся. Сеанс временный: до суток, может завершиться при обновлении сайта.</p></div><nav aria-label="Тестовые кабинеты"><a href="/demo/customer" ${!admin?'aria-current="page"':''}>Я клиент</a><a href="/demo/admin" ${admin?'aria-current="page"':''}>Я администратор</a><button type="button" data-demo-reset>Начать заново</button></nav></aside>`:''}${!state.user ? authView() : admin && state.user.role !== 'admin' ? `<div class="portal-empty"><p class="portal-eyebrow">Доступ ограничен</p><h1>Этот кабинет — для команды сервиса</h1><p>Вы вошли как ${esc(state.user.email)}. Управление заказами доступно администратору.</p><a class="portal-button is-small" href="/account">Мой кабинет <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a><button type="button" data-logout class="portal-text-button">Выйти из аккаунта</button>${flash()}</div>` : state.data ? dashboard() : `<div class="portal-empty"><h2>Не удалось загрузить кабинет</h2>${flash()}<button type="button" data-refresh class="portal-button is-small">Повторить ↻</button><button data-logout type="button" class="portal-text-button">Выйти</button></div>`}</section>`;
     portalRoot = mount.firstElementChild;
     if (!state.user && pollTimer) { clearInterval(pollTimer); pollTimer = null; }
     bind();
   }
   function bind() {
+    mount.querySelector('[data-demo-reset]')?.addEventListener('click',async event=>{event.currentTarget.disabled=true;try{await ensureDemo(true);state.selected=null;state.filter='active';state.notice='Новый тест готов.';await reload();}catch(error){notify(error.message,true);}});
     mount.querySelectorAll('[data-auth]').forEach(b=>b.addEventListener('click',()=>{state.auth=b.dataset.auth;state.error='';state.notice='';draw();}));
     mount.querySelectorAll('[data-dismiss]').forEach(b=>b.addEventListener('click',()=>{state[b.dataset.dismiss]='';draw();}));
-    mount.querySelectorAll('[data-logout]').forEach(b=>b.addEventListener('click',async()=>{b.disabled=true;try{await api('/api/auth/logout','POST',{});state.user=null;state.data=null;state.error='';state.notice='';draw();}catch(e){notify(e.message,true);}}));
+    mount.querySelectorAll('[data-logout]').forEach(b=>b.addEventListener('click',async()=>{b.disabled=true;try{await demoApi('/api/auth/logout','POST',{});state.user=null;state.data=null;state.error='';state.notice='';draw();}catch(e){notify(e.message,true);}}));
     mount.querySelectorAll('[data-refresh]').forEach(b=>b.addEventListener('click',async()=>{b.disabled=true;try{state.error='';await refreshPreservingDrafts();}catch(e){b.disabled=false;const existing=mount.querySelector('[data-updates]');if(existing){existing.hidden=false;existing.querySelector('span').textContent=e.message;}else notify(e.message,true);}}));
     mount.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{state.filter=b.dataset.filter;draw();}));
     mount.querySelector('[data-status-filter]')?.addEventListener('change', e=>{state.filter=e.target.value;draw();});
@@ -146,7 +151,7 @@ export async function renderPortal(path, mount) {
     mount.querySelectorAll('[data-car-reminders]').forEach(input=>input.addEventListener('change',async()=>{
       const checked=input.checked;input.disabled=true;
       const feedback=Array.from(mount.querySelectorAll('[data-car-feedback]')).find(el=>el.dataset.carFeedback===input.dataset.carReminders);
-      try{await api(`/api/cars/${encodeURIComponent(input.dataset.carReminders)}`,'PATCH',{remindersEnabled:checked});const car=(state.data.cars||[]).find(c=>String(c.id)===input.dataset.carReminders);if(car)car.remindersEnabled=checked;snapshot=JSON.stringify(state.data);if(feedback){feedback.hidden=false;feedback.textContent='Предпочтение сохранено.';}}
+      try{await demoApi(`/api/cars/${encodeURIComponent(input.dataset.carReminders)}`,'PATCH',{remindersEnabled:checked});const car=(state.data.cars||[]).find(c=>String(c.id)===input.dataset.carReminders);if(car)car.remindersEnabled=checked;snapshot=JSON.stringify(state.data);if(feedback){feedback.hidden=false;feedback.textContent='Предпочтение сохранено.';}}
       catch(error){input.checked=!checked;if(feedback){feedback.hidden=false;feedback.textContent=error.message;}}
       finally{input.disabled=false;}
     }));
@@ -175,49 +180,49 @@ export async function renderPortal(path, mount) {
       switch(form.dataset.form) {
         case 'auth': {
           const register=!admin&&state.auth==='register';
-          await api(`/api/auth/${register?'register':'login'}`,'POST',{...values,...(register?{consent:true}:{})});
+          await demoApi(`/api/auth/${register?'register':'login'}`,'POST',{...values,...(register?{consent:true}:{})});
           await reload(); break;
         }
         case 'car': {
-          await api('/api/cars','POST',{model:values.model,registration:values.registration||undefined,vin:values.vin||undefined,year:values.year||undefined,remindersEnabled:values.remindersEnabled==='on'});
+          await demoApi('/api/cars','POST',{model:values.model,registration:values.registration||undefined,vin:values.vin||undefined,year:values.year||undefined,remindersEnabled:values.remindersEnabled==='on'});
           state.addingCar=false;state.notice='Автомобиль добавлен в гараж.';await reload();break;
         }
         case 'delete-car': {
-          await api(`/api/cars/${encodeURIComponent(form.dataset.id)}`,'DELETE');
+          await demoApi(`/api/cars/${encodeURIComponent(form.dataset.id)}`,'DELETE');
           form.dataset.dirty='false';state.notice='Автомобиль удалён из гаража. История обращений сохранена.';await refreshPreservingDrafts();break;
         }
         case 'booking': {
-          await api('/api/bookings','POST',{...values,carId:values.carId||undefined,email:state.user.email,consent:true});
-          state.booking=false;state.filter='active';state.notice='Обращение отправлено. Сервис свяжется с вами для согласования времени.';await reload();break;
+          await demoApi('/api/bookings','POST',{...values,carId:values.carId||undefined,email:state.user.email,consent:true});
+          state.booking=false;state.filter='active';state.notice='Обращение отправлено. Время визита появится после подтверждения администратором.';await reload();break;
         }
         case 'approve': {
-          await api(`/api/orders/${encodeURIComponent(form.dataset.id)}/approve`,'POST',{quoteId:form.dataset.quote});
+          await demoApi(`/api/orders/${encodeURIComponent(form.dataset.id)}/approve`,'POST',{quoteId:form.dataset.quote});
           state.notice='Смета согласована. Решение сохранено в истории заказа.';await reload();break;
         }
         case 'reject': {
           if(!values.reason.trim())throw new Error('Укажите причину пересмотра.');
-          await api(`/api/orders/${encodeURIComponent(form.dataset.id)}/reject`,'POST',{quoteId:form.dataset.quote,reason:values.reason.trim()});
+          await demoApi(`/api/orders/${encodeURIComponent(form.dataset.id)}/reject`,'POST',{quoteId:form.dataset.quote,reason:values.reason.trim()});
           state.notice='Запрос на пересмотр сохранён. Сервис уточнит состав работ.';await reload();break;
         }
         case 'message': {
           if(!values.body.trim())throw new Error('Введите сообщение.');
-          await api(`${admin?'/api/admin':'/api'}/orders/${encodeURIComponent(form.dataset.id)}/messages`,'POST',{body:values.body.trim()});
+          await demoApi(`${admin?'/api/admin':'/api'}/orders/${encodeURIComponent(form.dataset.id)}/messages`,'POST',{body:values.body.trim()});
           state.notice='Сообщение отправлено.';await reload();break;
         }
         case 'link-customer': {
-          await api(`/api/admin/orders/${encodeURIComponent(form.dataset.id)}`,'PATCH',{customerId:values.customerId});
+          await demoApi(`/api/admin/orders/${encodeURIComponent(form.dataset.id)}`,'PATCH',{customerId:values.customerId});
           state.notice='Заказ добавлен в кабинет выбранного клиента.';await reload();break;
         }
         case 'status': {
           if(form.dataset.currentStatus==='in_progress'&&values.status==='diagnostics'&&!values.note.trim())throw new Error('Укажите причину приостановки ремонта.');
           if(values.status==='scheduled'&&!values.scheduledAt)throw new Error('Укажите дату и время визита.');
-          await api(`/api/admin/orders/${encodeURIComponent(form.dataset.id)}`,'PATCH',{status:values.status,scheduledAt:values.scheduledAt?new Date(values.scheduledAt).toISOString():null,...(values.note.trim()?{note:values.note.trim()}:{})});
+          await demoApi(`/api/admin/orders/${encodeURIComponent(form.dataset.id)}`,'PATCH',{status:values.status,scheduledAt:values.scheduledAt?new Date(values.scheduledAt).toISOString():null,...(values.note.trim()?{note:values.note.trim()}:{})});
           state.notice='Заказ обновлён.';await reload();break;
         }
         case 'quote': {
           const items=Array.from(form.querySelectorAll('.portal-quote-row')).map(row=>({title:row.querySelector('[name="itemTitle"]').value.trim(),quantity:Number(row.querySelector('[name="itemQuantity"]').value),unitPrice:Number(row.querySelector('[name="itemPrice"]').value)}));
           if(!items.length||items.some(i=>!i.title||!Number.isSafeInteger(i.quantity)||i.quantity<1||i.quantity>100||!Number.isSafeInteger(i.unitPrice)||i.unitPrice<0))throw new Error('Проверьте название, количество и цену каждой позиции.');
-          await api(`/api/admin/orders/${encodeURIComponent(form.dataset.id)}/quote`,'POST',{items,note:values.note});
+          await demoApi(`/api/admin/orders/${encodeURIComponent(form.dataset.id)}/quote`,'POST',{items,note:values.note});
           state.notice='Новая смета отправлена клиенту на согласование.';await reload();break;
         }
       }
@@ -228,5 +233,5 @@ export async function renderPortal(path, mount) {
       if(error.status===401&&form.dataset.form!=='auth'){state.user=null;state.data=null;state.error='Сессия завершилась. Войдите снова.';draw();}
     } finally { if(button?.isConnected){button.disabled=false;button.innerHTML=original;} }
   }
-  try { await reload(); } catch(error) { state.error=error.message; draw(); }
+  try { if(demo)await ensureDemo();await reload(); } catch(error) { state.error=error.message; draw(); }
 }

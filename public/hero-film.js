@@ -6,7 +6,7 @@ export function bindHeroFilm(video, control, icon) {
   const surface = video.closest('.hero-film');
   const canvas = surface.querySelector('canvas');
   const context = canvas.getContext('2d', { alpha: false });
-  const poster = new Image();
+  const poster = surface.querySelector('.hero-poster');
   const events = new AbortController();
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   let visible = true, disposed = false, frame = null, lastTime = -1;
@@ -59,7 +59,7 @@ export function bindHeroFilm(video, control, icon) {
     height = Math.max(1, Math.round(box.height * resolution));
     panorama = !!context && box.width > 1100 && box.width / box.height > 16 / 9;
     surface.classList.toggle('is-panorama', false);
-    if (panorama) { canvas.width = width; canvas.height = height; draw(); }
+    if (panorama) { canvas.width = width; canvas.height = height; draw();if(!video.paused){cancelFrame();nextFrame();} } else cancelFrame();
   }
 
   function cancelFrame() {
@@ -71,23 +71,26 @@ export function bindHeroFilm(video, control, icon) {
 
   function nextFrame() {
     frame = null;
-    if (disposed || video.paused || !visible || document.hidden) return;
+    if (disposed || !panorama || video.paused || !visible || document.hidden) return;
     if (lastTime !== video.currentTime) { draw(); lastTime = video.currentTime; }
     frame = video.requestVideoFrameCallback ? video.requestVideoFrameCallback(nextFrame) : requestAnimationFrame(nextFrame);
   }
 
   function reconcile() {
     if (disposed) return;
-    if (wantsPlayback && visible && !document.hidden) video.play().catch(updateControl);
+    if (wantsPlayback && visible && !document.hidden) {
+      if (!video.getAttribute('src') && poster.complete) { video.src=matchMedia('(max-width: 1100px)').matches?video.dataset.mobileSrc:video.dataset.desktopSrc;video.load(); }
+      if(video.getAttribute('src'))video.play().catch(updateControl);
+    }
     else video.pause();
     updateControl();
   }
 
-  listen(video, 'playing', () => { cancelFrame(); nextFrame(); updateControl(); });
+  listen(video, 'playing', () => { surface.classList.add('is-playing'); cancelFrame(); nextFrame(); updateControl(); });
   listen(video, 'pause', () => { cancelFrame(); draw(); updateControl(); });
   listen(video, 'loadeddata', draw);
   listen(video, 'seeked', draw);
-  listen(video, 'error', () => { surface.classList.remove('is-panorama'); updateControl(); });
+  listen(video, 'error', () => { surface.classList.remove('is-panorama','is-playing'); updateControl(); });
   listen(control, 'click', () => { wantsPlayback = video.paused; reconcile(); });
   listen(document, 'visibilitychange', reconcile);
   listen(motion, 'change', () => { if (motion.matches) wantsPlayback = false; reconcile(); });
@@ -95,8 +98,7 @@ export function bindHeroFilm(video, control, icon) {
   observer.observe(surface);
   const sizeObserver = new ResizeObserver(resize);
   sizeObserver.observe(surface);
-  poster.onload = () => { if (!disposed) draw(); };
-  poster.src = video.poster;
+  listen(poster,'load',()=>{if(!disposed){draw();reconcile();}});
   video.muted = true;
   resize();
   reconcile();
