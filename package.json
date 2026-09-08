@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
-    "test": "node --test tests/backend.test.mjs",
-    "check": "node --check server.mjs && node --check public/app.js && node --check public/portal.js && node --check public/content.js && node --check public/catalog-data.js && node --check public/catalog-pages.js && node --check public/hero-film.js",
-    "dev": "PORT=4173 node server.mjs"
+    "test": "node scripts/build-pages.mjs && node --test tests/*.test.mjs",
+    "check": "node --check server.mjs && node --check public/app.js && node --check public/portal.js && node --check public/content.js && node --check public/catalog-data.js && node --check public/catalog-pages.js && node --check public/hero-film.js && node --check public/ui.js && node --check demo-router.mjs && node --check static-files.mjs && node --check public/basic-pages.js && node --check public/demo-session.js",
+    "dev": "PORT=4173 node server.mjs",
+    "build": "node scripts/build-pages.mjs"
   },
   "engines": {
     "node": ">=24"
