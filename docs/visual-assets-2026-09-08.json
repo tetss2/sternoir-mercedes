@@ -1,0 +1,56 @@
+{
+  "date": "2026-09-08",
+  "generator": "built-in image_gen",
+  "fictional": true,
+  "reference": "Existing STERNOIR workshop architecture; new team reference for the club hostess",
+  "assets": [
+    {
+      "file": "public/assets/sternoir-team-replacement.webp",
+      "role": "/about — six male staff members and one female hostess; four in front, three behind",
+      "width": 1672,
+      "height": 941,
+      "bytes": 143006,
+      "sha256": "a8d62744ed1cf65334341ee0f169f15efc85e6f29ed19b2a458f4bdeb1ab2af8"
+    },
+    {
+      "file": "public/assets/sternoir-workshop-alternate.webp",
+      "role": "/about — diagonal view from the workbench toward the glass lounge",
+      "width": 1672,
+      "height": 941,
+      "bytes": 207280,
+      "sha256": "9599c0d99b41e46a666adb43768259334ffcf242bff5d1bc75115e9d12d3c5ec"
+    },
+    {
+      "file": "public/assets/sternoir-diagnostics-alternate.webp",
+      "role": "/ — different blond technician at the rear diagnostics bay",
+      "width": 1672,
+      "height": 941,
+      "bytes": 159996,
+      "sha256": "0b9a29530fce487a1e2317b4e6f086d9d6e9b653bd2477853a88a0bb7c9a7ef1"
+    },
+    {
+      "file": "public/assets/sternoir-maintenance.webp",
+      "role": "Maintenance catalogue entry and service page — oil filter service",
+      "width": 1672,
+      "height": 941,
+      "bytes": 166596,
+      "sha256": "04b5448ffe7321f83500a8ab19af12ada7fcd45ef52a0acd13a6388c3e108a46"
+    },
+    {
+      "file": "public/assets/sternoir-handover-club.webp",
+      "role": "/process — work order and keys at reception",
+      "width": 1672,
+      "height": 941,
+      "bytes": 142652,
+      "sha256": "f647194c5e8a01f98a9895855fb13f79e5d334100c025507033b4456a1d16e97"
+    },
+    {
+      "file": "public/assets/sternoir-club-welcome.webp",
+      "role": "/club — the same new hostess welcoming a car owner in the lounge",
+      "width": 1672,
+      "height": 941,
+      "bytes": 124480,
+      "sha256": "f5ec46a754d6f1b069a37c6a91213fec599c82c5d41f1db39dda732083d50a5b"
+    }
+  ]
+}
