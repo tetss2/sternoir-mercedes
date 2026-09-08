@@ -42,8 +42,6 @@
   box-shadow: none;
 }
 .hero-film canvas { display: none; }
-.hero-film video { visibility: hidden; }
-.hero-film.is-playing video { visibility: visible; }
 .hero-film.is-panorama canvas { display: block; }
 .hero-film.is-panorama video { opacity: 0; }
 .hero-film::after {
@@ -102,13 +100,12 @@
 .hero-film .hero-poster{z-index:1;opacity:1;transition:opacity .2s}
 .hero-film.is-playing .hero-poster,.hero-film.is-panorama .hero-poster{opacity:0}
 .hero-film::after{z-index:2}
-/* Mobile webviews open with a static poster and avoid live backdrop surfaces. */
+/* Mobile uses the native video surface and avoids live backdrop surfaces. */
 @media (max-width: 1100px), (pointer: coarse) {
   #header, .glass, .booking-dialog::backdrop {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
-  .hero-film .hero-poster { transition: none; }
   .service-card:hover img { filter: none; }
 }
 picture.responsive-photo{display:contents}
