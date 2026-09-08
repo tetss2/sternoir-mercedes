@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.mjs",
     "test": "node --test tests/backend.test.mjs",
-    "check": "node --check server.mjs && node --check public/app.js && node --check public/portal.js && node --check public/content.js",
+    "check": "node --check server.mjs && node --check public/app.js && node --check public/portal.js && node --check public/content.js && node --check public/catalog-data.js && node --check public/catalog-pages.js",
     "dev": "PORT=4173 node server.mjs"
   },
   "engines": {

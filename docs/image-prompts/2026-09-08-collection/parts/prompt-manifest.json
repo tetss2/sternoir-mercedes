@@ -1,0 +1,208 @@
+{
+  "collection": "STERNOIR service component images",
+  "mode": "built-in ImageGen",
+  "requestedCount": 12,
+  "outputDirectory": "/workspace/scratch/sternoir-expansion-assets/parts",
+  "referenceViewed": "/workspace/scratch/sternoir-production/public/assets/sternoir-workshop-master.webp",
+  "intendedUse": "Illustrative service imagery; not exact technical diagrams",
+  "jobs": [
+    {
+      "filename": "part-engine.png",
+      "subject": "Engine on red stand with valve cover removed and timing chain visible",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: premium STERNOIR Mercedes service website illustrative category photograph.\nCreate one distinct high-quality photorealistic automotive workshop photograph, landscape 16:9, approximately 1672 x 941 pixels.\nScene/backdrop: clean spacious premium specialist workshop, charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights and restrained dark-red equipment accents softly blurred behind the subject. For workbench subjects use a graphite matte workbench. Architecture should feel like a premium industrial service space, not a futuristic showroom.\nLighting/mood: warm side daylight with soft highlights and natural shadow falloff, refined documentary service photography. Silver machined metal, graphite surfaces, subtly worn realistic textures. Subject is clearly legible at a website card size.\nConstraints: one coherent photographic scene, plausible component geometry, no readable labels or captions, no watermark, no fake part numbers, no visible logos or text, no borders or collage. No technical diagram or procedural instructional layout.\nSubject/composition: Three-quarter close view of a silver inline-six automotive engine securely mounted on a dark red engine stand, filling most of the frame. The valve cover has been removed to reveal camshaft hardware and the timing chain is visibly wrapped around front sprockets. Clearly cast engine block with natural oily patina, crisp chain links and clean metallic machined edges. Keep major engine silhouette complete with softly blurred workshop beyond; slightly low camera angle. No mechanic needed."
+    },
+    {
+      "filename": "part-transmission.png",
+      "subject": "Automatic transmission valve body on dark workbench",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: premium STERNOIR Mercedes service website illustrative category photograph.\nCreate one distinct high-quality photorealistic automotive workshop photograph, landscape 16:9, approximately 1672 x 941 pixels.\nScene/backdrop: clean spacious premium specialist workshop, charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights and restrained dark-red equipment accents softly blurred behind the subject. For workbench subjects use a graphite matte workbench. Architecture should feel like a premium industrial service space, not a futuristic showroom.\nLighting/mood: warm side daylight with soft highlights and natural shadow falloff, refined documentary service photography. Silver machined metal, graphite surfaces, subtly worn realistic textures. Subject is clearly legible at a website card size.\nConstraints: one coherent photographic scene, plausible component geometry, no readable labels or captions, no watermark, no fake part numbers, no visible logos or text, no borders or collage. No technical diagram or procedural instructional layout.\nSubject/composition: A silver automatic transmission valve body lying flat on a graphite workbench, close three-quarter macro composition. Prominent orderly machined hydraulic channels, bolted plates, compact solenoids and black electrical connectors; a full silver transmission casing sits softly blurred behind it at upper right. Focus on foreground machined details, restrained red tool cabinet blur at distant left."
+    },
+    {
+      "filename": "part-brakes.png",
+      "subject": "Ventilated brake disc and red performance caliper inspected on wheel hub",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: premium STERNOIR Mercedes service website illustrative category photograph.\nCreate one distinct high-quality photorealistic automotive workshop photograph, landscape 16:9, approximately 1672 x 941 pixels.\nScene/backdrop: clean spacious premium specialist workshop, charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights and restrained dark-red equipment accents softly blurred behind the subject. For workbench subjects use a graphite matte workbench. Architecture should feel like a premium industrial service space, not a futuristic showroom.\nLighting/mood: warm side daylight with soft highlights and natural shadow falloff, refined documentary service photography. Silver machined metal, graphite surfaces, subtly worn realistic textures. Subject is clearly legible at a website card size.\nConstraints: one coherent photographic scene, plausible component geometry, no readable labels or captions, no watermark, no fake part numbers, no visible logos or text, no borders or collage. No technical diagram or procedural instructional layout.\nSubject/composition: Tight close-up of a ventilated silver brake disc mounted on the hub of a raised dark premium German sedan, wheel removed. A large unlettered dark-red AMG-style performance brake caliper is installed over the rotor's outer edge. One mechanic's dark nitrile-gloved hand lightly steadies the hub during visual inspection. Camera looks directly toward the rotor at a small angle with circular rotor, real vent channels, hub bolts and brake assembly geometry clearly resolved. Softly blurred red lift and workshop beyond. No logos or lettering on caliper."
+    },
+    {
+      "filename": "part-suspension.png",
+      "subject": "Air suspension strut and control arm on workbench",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: premium STERNOIR Mercedes service website illustrative category photograph.\nCreate one distinct high-quality photorealistic automotive workshop photograph, landscape 16:9, approximately 1672 x 941 pixels.\nScene/backdrop: clean spacious premium specialist workshop, charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights and restrained dark-red equipment accents softly blurred behind the subject. For workbench subjects use a graphite matte workbench. Architecture should feel like a premium industrial service space, not a futuristic showroom.\nLighting/mood: warm side daylight with soft highlights and natural shadow falloff, refined documentary service photography. Silver machined metal, graphite surfaces, subtly worn realistic textures. Subject is clearly legible at a website card size.\nConstraints: one coherent photographic scene, plausible component geometry, no readable labels or captions, no watermark, no fake part numbers, no visible logos or text, no borders or collage. No technical diagram or procedural instructional layout.\nSubject/composition: A complete automotive air suspension strut with a black rubber air spring sleeve and silver metal body placed diagonally across a graphite workbench; a distinct cast silver control arm with two rubber bushings rests alongside it. Medium-close side view, strut running from lower left toward upper right, engineered shapes mechanically plausible, subtle workshop dust and clean inspected components, shallow depth of field and a blurred dark-red tool trolley behind."
+    },
+    {
+      "filename": "part-electrics.png",
+      "subject": "Mechanic measuring wiring with a multimeter",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: premium STERNOIR Mercedes service website illustrative category photograph.\nCreate one distinct high-quality photorealistic automotive workshop photograph, landscape 16:9, approximately 1672 x 941 pixels.\nScene/backdrop: clean spacious premium specialist workshop, charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights and restrained dark-red equipment accents softly blurred behind the subject. For workbench subjects use a graphite matte workbench. Architecture should feel like a premium industrial service space, not a futuristic showroom.\nLighting/mood: warm side daylight with soft highlights and natural shadow falloff, refined documentary service photography. Silver machined metal, graphite surfaces, subtly worn realistic textures. Subject is clearly legible at a website card size.\nConstraints: one coherent photographic scene, plausible component geometry, no readable labels or captions, no watermark, no fake part numbers, no visible logos or text, no borders or collage. No technical diagram or procedural instructional layout.\nSubject/composition: Close-up of a mechanic's two gloved hands checking a black automotive wiring connector beside an open premium car engine bay, a compact professional multimeter on the nearby graphite bench edge. One red and one black probe held naturally, cables following clear continuous paths to the meter. Meter display is turned away or dark and unreadable. Focus on hands, connector and insulated wiring; shallow depth of field, black sleeves cropped at wrists, no face, restrained red meter trim, blurred bright clean workshop."
+    },
+    {
+      "filename": "part-climate.png",
+      "subject": "Radiator and condenser inspection with AC hardware",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: premium STERNOIR Mercedes service website illustrative category photograph.\nCreate one distinct high-quality photorealistic automotive workshop photograph, landscape 16:9, approximately 1672 x 941 pixels.\nScene/backdrop: clean spacious premium specialist workshop, charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights and restrained dark-red equipment accents softly blurred behind the subject. For workbench subjects use a graphite matte workbench. Architecture should feel like a premium industrial service space, not a futuristic showroom.\nLighting/mood: warm side daylight with soft highlights and natural shadow falloff, refined documentary service photography. Silver machined metal, graphite surfaces, subtly worn realistic textures. Subject is clearly legible at a website card size.\nConstraints: one coherent photographic scene, plausible component geometry, no readable labels or captions, no watermark, no fake part numbers, no visible logos or text, no borders or collage. No technical diagram or procedural instructional layout.\nSubject/composition: A mechanic in dark workwear and black gloves visually inspecting a freestanding automotive radiator and condenser assembly on a graphite bench. Three-quarter close crop: fine aluminum cooling fins, solid side tanks, black rubber hoses and a pair of simple AC service couplers at the edge of the bench. The mechanic's gloved hand lightly supports the side frame without obstructing the fin surface, torso cropped with no face. Warm raking daylight reveals realistic fin texture, background workshop softly blurred. Equipment displays and gauges turned away and unreadable."
+    },
+    {
+      "filename": "part-diesel.png",
+      "subject": "Diesel injector and high-pressure fuel pump",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: premium STERNOIR Mercedes service website illustrative category photograph.\nCreate one distinct high-quality photorealistic automotive workshop photograph, landscape 16:9, approximately 1672 x 941 pixels.\nScene/backdrop: clean spacious premium specialist workshop, charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights and restrained dark-red equipment accents softly blurred behind the subject. For workbench subjects use a graphite matte workbench. Architecture should feel like a premium industrial service space, not a futuristic showroom.\nLighting/mood: warm side daylight with soft highlights and natural shadow falloff, refined documentary service photography. Silver machined metal, graphite surfaces, subtly worn realistic textures. Subject is clearly legible at a website card size.\nConstraints: one coherent photographic scene, plausible component geometry, no readable labels or captions, no watermark, no fake part numbers, no visible logos or text, no borders or collage. No technical diagram or procedural instructional layout.\nSubject/composition: Premium macro still-life of one long silver diesel fuel injector and a compact cast-metal high-pressure fuel pump resting on a dark graphite workbench. Injector lies in the immediate foreground on a clean lint-free charcoal cloth; pump stands behind toward left with realistic fittings and black plastic connector. Moderate shallow depth of field keeps both components recognizable, crisp machined steel, subtle residual surface sheen, softly blurred workshop and tiny dark-red trolley accent beyond. No pipes spraying fuel, no hands."
+    },
+    {
+      "filename": "part-fuel.png",
+      "subject": "Fuel rail and injectors close-up",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: premium STERNOIR Mercedes service website illustrative category photograph.\nCreate one distinct high-quality photorealistic automotive workshop photograph, landscape 16:9, approximately 1672 x 941 pixels.\nScene/backdrop: clean spacious premium specialist workshop, charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights and restrained dark-red equipment accents softly blurred behind the subject. For workbench subjects use a graphite matte workbench. Architecture should feel like a premium industrial service space, not a futuristic showroom.\nLighting/mood: warm side daylight with soft highlights and natural shadow falloff, refined documentary service photography. Silver machined metal, graphite surfaces, subtly worn realistic textures. Subject is clearly legible at a website card size.\nConstraints: one coherent photographic scene, plausible component geometry, no readable labels or captions, no watermark, no fake part numbers, no visible logos or text, no borders or collage. No technical diagram or procedural instructional layout.\nSubject/composition: Diagonal close-up of a clean silver automotive fuel rail with four evenly spaced realistic injectors and black connectors, arranged on a matte graphite workbench. The rail traverses the frame from lower left to upper right; coherent mechanical attachment points, slender injector metal ends, black rubber O-rings. Focus on central two injectors, others taper softly into depth. Warm side light glints along machined surfaces; pale concrete and dark-red service equipment very softly blurred in the background. No hands."
+    },
+    {
+      "filename": "part-exhaust.png",
+      "subject": "Polished exhaust twin outlets beneath raised premium Mercedes",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: premium STERNOIR Mercedes service website illustrative category photograph.\nCreate one distinct high-quality photorealistic automotive workshop photograph, landscape 16:9, approximately 1672 x 941 pixels.\nScene/backdrop: clean spacious premium specialist workshop, charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights and restrained dark-red equipment accents softly blurred behind the subject. For workbench subjects use a graphite matte workbench. Architecture should feel like a premium industrial service space, not a futuristic showroom.\nLighting/mood: warm side daylight with soft highlights and natural shadow falloff, refined documentary service photography. Silver machined metal, graphite surfaces, subtly worn realistic textures. Subject is clearly legible at a website card size.\nConstraints: one coherent photographic scene, plausible component geometry, no readable labels or captions, no watermark, no fake part numbers, no visible logos or text, no borders or collage. No technical diagram or procedural instructional layout.\nSubject/composition: Low three-quarter rear close-up beneath a raised dark premium Mercedes sedan showing a polished stainless-steel exhaust rear section and two adjacent refined oval outlets in sharp focus. Include plausible continuous pipe routing, real weld seams, hangers and a subtle underbody edge; no visible badges, license plate or text. The car is securely on a red vehicle lift; camera low enough to show the exhaust assembly and blurred workshop depth behind, warm light on stainless steel, charcoal chassis and restrained red lift accents. Composition differs from bench photographs."
+    },
+    {
+      "filename": "part-alignment.png",
+      "subject": "Wheel alignment target mounted on wheel on red alignment rack",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: premium STERNOIR Mercedes service website illustrative category photograph.\nCreate one distinct high-quality photorealistic automotive workshop photograph, landscape 16:9, approximately 1672 x 941 pixels.\nScene/backdrop: clean spacious premium specialist workshop, charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights and restrained dark-red equipment accents softly blurred behind the subject. For workbench subjects use a graphite matte workbench. Architecture should feel like a premium industrial service space, not a futuristic showroom.\nLighting/mood: warm side daylight with soft highlights and natural shadow falloff, refined documentary service photography. Silver machined metal, graphite surfaces, subtly worn realistic textures. Subject is clearly legible at a website card size.\nConstraints: one coherent photographic scene, plausible component geometry, no readable labels or captions, no watermark, no fake part numbers, no visible logos or text, no borders or collage. No technical diagram or procedural instructional layout.\nSubject/composition: Close three-quarter photograph of a modern black and silver alloy wheel on a dark premium sedan, a professional rectangular black-and-white geometric wheel-alignment target properly clamped to the wheel rim. The tire rests on the metal turnplate of a dark-red alignment rack. Target has clean circular optical markers only, no words or branding. Frame from rack height, tire and target dominant, a sliver of car body above and softly blurred clean industrial workshop behind. Plausible clamp arms, natural rubber and machined alloy texture."
+    },
+    {
+      "filename": "part-maintenance.png",
+      "subject": "Oil air cabin filters, spark plugs and unlabeled oil can",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: premium STERNOIR Mercedes service website illustrative category photograph.\nCreate one distinct high-quality photorealistic automotive workshop photograph, landscape 16:9, approximately 1672 x 941 pixels.\nScene/backdrop: clean spacious premium specialist workshop, charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights and restrained dark-red equipment accents softly blurred behind the subject. For workbench subjects use a graphite matte workbench. Architecture should feel like a premium industrial service space, not a futuristic showroom.\nLighting/mood: warm side daylight with soft highlights and natural shadow falloff, refined documentary service photography. Silver machined metal, graphite surfaces, subtly worn realistic textures. Subject is clearly legible at a website card size.\nConstraints: one coherent photographic scene, plausible component geometry, no readable labels or captions, no watermark, no fake part numbers, no visible logos or text, no borders or collage. No technical diagram or procedural instructional layout.\nSubject/composition: Refined oblique still-life on a graphite workbench showing a compact arranged service kit: a cylindrical pleated oil-filter cartridge, one rectangular pleated engine air filter, a wide shallow white pleated cabin filter, four separate clean spark plugs in an orderly row, and one small unlabelled metal oil can to the side. Every type easily distinguished, no duplicated objects beyond four plugs. Warm side daylight brings out filter paper texture, ceramic plugs and matte metal can. Softly blurred premium workshop behind, tiny restrained red equipment accent, no boxes or labels."
+    },
+    {
+      "filename": "part-parts.png",
+      "subject": "Overhead plain packaging with pad filter plug belt",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: premium STERNOIR Mercedes service website illustrative category photograph.\nCreate one distinct high-quality photorealistic automotive workshop photograph, landscape 16:9, approximately 1672 x 941 pixels.\nScene/backdrop: clean spacious premium specialist workshop, charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights and restrained dark-red equipment accents softly blurred behind the subject. For workbench subjects use a graphite matte workbench. Architecture should feel like a premium industrial service space, not a futuristic showroom.\nLighting/mood: warm side daylight with soft highlights and natural shadow falloff, refined documentary service photography. Silver machined metal, graphite surfaces, subtly worn realistic textures. Subject is clearly legible at a website card size.\nConstraints: one coherent photographic scene, plausible component geometry, no readable labels or captions, no watermark, no fake part numbers, no visible logos or text, no borders or collage. No technical diagram or procedural instructional layout.\nSubject/composition: Refined top-down photographic composition of original-style plain service-part packaging on a graphite workbench: two understated unmarked kraft-gray boxes with one lid slightly open, one pair of dark brake pads, a compact pleated filter cartridge, one ceramic spark plug, and one neatly coiled black serpentine belt. Clear separation and deliberate asymmetric arrangement, each distinct part fully identifiable. Warm soft side daylight and realistic cast shadows, premium uncoated cardboard and mechanical textures, a small dark-red workbench tray edge as the only color accent. Absolutely no readable marks, part numbers, brands, labels, captions or logos."
+    }
+  ],
+  "status": "complete",
+  "completedCount": 12,
+  "generatedCount": 12,
+  "variantsGenerated": 0,
+  "outputs": [
+    {
+      "filename": "part-engine.png",
+      "inspection": "Accepted: clear subject, coherent workshop style, plausible illustrative geometry, no readable text.",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/part-engine.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-66a3dfd3-ca87-4857-b533-e059d2effbed.png",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2385462,
+      "sha256": "c1545a86abb6283468855022f26aa6cf5234a7ad145278b2b012f8a755267f13"
+    },
+    {
+      "filename": "part-transmission.png",
+      "inspection": "Accepted: clear subject, coherent workshop style, plausible illustrative geometry, no readable text.",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/part-transmission.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-fcf293f3-63b0-44ac-a818-b8494cad2eb3.png",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2146354,
+      "sha256": "918fe22d5e04eecfab3f6ffd0ce88a2622db1474ae533c78bf79bc62974f97ce"
+    },
+    {
+      "filename": "part-brakes.png",
+      "inspection": "Accepted: clear subject, coherent workshop style, plausible illustrative geometry, no readable text.",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/part-brakes.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-1b4f481e-906e-4176-8c01-fa92f8d65a19.png",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2001852,
+      "sha256": "f253ad57a0706049b72345bb3f1240c7b8785d3cd10d9c2c4d5720c6ca9e44d3"
+    },
+    {
+      "filename": "part-suspension.png",
+      "inspection": "Accepted: clear subject, coherent workshop style, plausible illustrative geometry, no readable labels.",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/part-suspension.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-640c16af-10e0-4c03-a519-083090878794.png",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2116009,
+      "sha256": "c089d47e5206a5da6983422d53d2e91524f135b0d1da45f393a20d4fa6ea4c52"
+    },
+    {
+      "filename": "part-electrics.png",
+      "inspection": "Accepted: natural gloved hands and probe routing; meter has faint control markings and an indistinct LCD but no readable caption or part label.",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/part-electrics.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-e91582d0-73f6-42ff-9ae4-d4dc6966838f.png",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2170062,
+      "sha256": "43cbdc898d475fd639442a9c9c9e53cf712c9d0180da0e785b5f6c0d9f39c497"
+    },
+    {
+      "filename": "part-climate.png",
+      "inspection": "Accepted: clear subject, coherent workshop style, plausible illustrative geometry, no readable labels.",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/part-climate.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-b6a5a727-b6c8-435b-873a-5724bf0eff64.png",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2403626,
+      "sha256": "13cfaa402d24628a7b031fe2aad51cca4d5e11fe5f9673dc2ea2221a63b59606"
+    },
+    {
+      "filename": "part-diesel.png",
+      "inspection": "Accepted: clear subject, coherent workshop style, plausible illustrative geometry, no readable text.",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/part-diesel.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-a2daf7d6-2dca-4fdc-9759-a222c0168ffd.png",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2255252,
+      "sha256": "4f08b6e686ba7cd36dd718ca56e6b935a61015a16e4b013a7db942d91abc1764"
+    },
+    {
+      "filename": "part-fuel.png",
+      "inspection": "Accepted: clear subject, coherent workshop style, plausible illustrative geometry, no readable text.",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/part-fuel.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-3d2f2f70-ab31-4b65-905f-6015c6e228de.png",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2070690,
+      "sha256": "1a75f1b380597a0a411a1ad6660787b803af55ded64cb8f4413312b9119b7f06"
+    },
+    {
+      "filename": "part-exhaust.png",
+      "inspection": "Accepted: clear subject, coherent workshop style, plausible illustrative geometry, no readable text.",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/part-exhaust.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-abf0f514-61d1-4c78-a4a2-0f630805030e.png",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2044659,
+      "sha256": "106b2e492451dfbd0d90163761fde7dd6a79d9dcd357c88efc8a918f47fe9fdd"
+    },
+    {
+      "filename": "part-alignment.png",
+      "inspection": "Accepted: clear subject, coherent workshop style, plausible illustrative geometry, no readable labels.",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/part-alignment.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-a327cad7-faa7-4853-9e63-6256a768255b.png",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2071859,
+      "sha256": "a373aaef0585c5194eafae25a5f8ea9d9651508ecdbf0758f61dcefccd3e5cea"
+    },
+    {
+      "filename": "part-maintenance.png",
+      "inspection": "Accepted: clear subject, coherent workshop style, plausible illustrative geometry, no readable labels.",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/part-maintenance.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-5232a87e-fd74-4b4b-9c81-61e56ce76a56.png",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2086579,
+      "sha256": "56745cd81941518871ace8af4e43ac8a09b7f824d28aa5e205767095d92c2d17"
+    },
+    {
+      "filename": "part-parts.png",
+      "inspection": "Accepted: all required service parts and plain packaging are clear. Composition is oblique rather than the requested overhead; usable, so no extra variant generated.",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/part-parts.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-017c1cf6-7b4c-48d4-a08a-4344c00a0e2e.png",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2252779,
+      "sha256": "924cec54e7a92d9275bdf7904301b1dbbd9fd8ec5df6bc203a1c7329d0136c14"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "collection": "STERNOIR distinct educational case photographs",
+  "mode": "built-in ImageGen",
+  "requestedCount": 3,
+  "outputDirectory": "/workspace/scratch/sternoir-expansion-assets/parts",
+  "styleReferenceViewedPreviously": "/workspace/scratch/sternoir-production/public/assets/sternoir-workshop-master.webp",
+  "intendedUse": "Illustrative diagnostic case imagery; not exact technical diagrams",
+  "jobs": [
+    {
+      "filename": "story-case-suspension.png",
+      "subject": "Technician examining an installed air suspension strut inside a black S-Class wheel arch",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: illustrative case-study photograph for the premium STERNOIR Mercedes service website.\nCreate one high-quality photorealistic automotive diagnostic work photograph, landscape 16:9, 1672 x 941 pixels.\nScene/backdrop: the same refined industrial workshop language as the existing collection: charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights, restrained dark-red vehicle lifts and tool cabinets. Silver metal and graphite surfaces. Softly blurred spacious clean workshop, warm side daylight mixed with gentle ceiling light, natural textures and realistic wear.\nStyle: premium documentary service photography, believable mechanic anatomy and component shapes. A distinct active inspection scene, not a product still life or collage.\nConstraints: no captions, logos, watermarks, readable labels, fake part numbers, legible data or text. Equipment displays turned away. No technical diagram or step-by-step procedure.\nSubject/composition: Three-quarter intimate work scene from wheel-arch height beside a lifted black Mercedes S-Class sedan, with its front wheel removed. The technician in graphite workwear and black nitrile gloves is closely examining the air suspension strut still installed vertically inside the wheel arch, with a black air-spring sleeve, silver strut hardware and realistic surrounding control arms. One hand holds a compact inspection light beside the strut, other hand lightly touches a bracket; no disassembly in progress. The technician is seen in partial side profile near the right edge, concentrating on the installed assembly. The curved glossy black fender frames the upper-left composition, natural hub and brake assembly lower in frame. The red lift arm and distant workshop are softly blurred. Clearly fitted inside the vehicle, never loose on a bench. Distinct angle from a service-parts bench photo. No visible car emblem or lettering."
+    },
+    {
+      "filename": "story-case-transmission.png",
+      "subject": "Mechanic inspecting transmission underside of a silver GLE on a red lift",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: illustrative case-study photograph for the premium STERNOIR Mercedes service website.\nCreate one high-quality photorealistic automotive diagnostic work photograph, landscape 16:9, 1672 x 941 pixels.\nScene/backdrop: the same refined industrial workshop language as the existing collection: charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights, restrained dark-red vehicle lifts and tool cabinets. Silver metal and graphite surfaces. Softly blurred spacious clean workshop, warm side daylight mixed with gentle ceiling light, natural textures and realistic wear.\nStyle: premium documentary service photography, believable mechanic anatomy and component shapes. A distinct active inspection scene, not a product still life or collage.\nConstraints: no captions, logos, watermarks, readable labels, fake part numbers, legible data or text. Equipment displays turned away. No technical diagram or step-by-step procedure.\nSubject/composition: A mechanic beneath a securely raised silver Mercedes GLE SUV visually inspecting the automatic transmission underside. Camera is at mechanic shoulder height looking diagonally upward beneath the central vehicle belly: the silver ribbed transmission housing and dark oil pan form the clear central subject, coherent prop shaft and underbody routing continuing beyond. Mechanic in dark workwear and gloves is at lower left in partial side profile, holding a small inspection lamp near the transmission, with their other hand resting lightly on a housing edge. A narrow silver sill and one wheel establish the raised SUV without showing badges. Dark-red lift arms securely support the vehicle, strong soft overhead workshop lights with warm side daylight catching cast aluminum. Distinct diagnostic work scene with depth through the workshop behind. No tablet, laptop, data screen, drained fluid, detached transmission or readable text."
+    },
+    {
+      "filename": "story-case-brakes.png",
+      "subject": "Mechanic measuring an exposed brake disc on a graphite E-Class",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: illustrative case-study photograph for the premium STERNOIR Mercedes service website.\nCreate one high-quality photorealistic automotive diagnostic work photograph, landscape 16:9, 1672 x 941 pixels.\nScene/backdrop: the same refined industrial workshop language as the existing collection: charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights, restrained dark-red vehicle lifts and tool cabinets. Silver metal and graphite surfaces. Softly blurred spacious clean workshop, warm side daylight mixed with gentle ceiling light, natural textures and realistic wear.\nStyle: premium documentary service photography, believable mechanic anatomy and component shapes. A distinct active inspection scene, not a product still life or collage.\nConstraints: no captions, logos, watermarks, readable labels, fake part numbers, legible data or text. Equipment displays turned away. No technical diagram or step-by-step procedure.\nSubject/composition: Close documentary photograph of a mechanic measuring the thickness of an exposed silver brake disc fitted on the front hub of a graphite Mercedes E-Class sedan, wheel removed. Frame from a higher side angle into the wheel arch, with the graphite fender curving above and a blurred red lift beyond. The brake disc is slightly left of center; two realistic black-gloved hands carefully hold a compact mechanical measuring caliper with its long narrow jaws spanning the rotor edge. The measuring tool is visually distinct from the actual brake caliper and its measurement scale is turned away, no readable data. Show thin machined rotor faces, vented disc edge, unpainted dark-gray brake caliper partly visible behind the rotor, subtle service wear and plausible proportions. Focus on hands, tool and disc edge. No bright-red brake caliper, no front-facing product shot, no car badge, no readable text."
+    }
+  ],
+  "status": "complete",
+  "completedCount": 3,
+  "initialGeneratedCount": 3,
+  "targetedCorrections": 1,
+  "outputs": [
+    {
+      "filename": "story-case-suspension.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-a8fdfcd8-2988-4a18-be5d-b210191676e3.png",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/story-case-suspension.png",
+      "inspection": "Accepted: installed air strut visible inside wheel arch with natural technician inspection pose; composition clearly differs from the bench strut photograph. No readable labels or captions.",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2052306,
+      "sha256": "b6a9cac8dbf5484644e28106a7ed558d7b2da7238fa817aefc64f03b41b2f727"
+    },
+    {
+      "filename": "story-case-transmission.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-1c5dd403-951d-4e3a-b2a9-1756e7de4bbb.png",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/story-case-transmission.png",
+      "inspection": "Accepted: distinct under-vehicle technician inspection scene with mounted transmission and red lift; no tablet or legible data. Detailed undercarriage is illustrative, not an exact GLE technical diagram.",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 2232352,
+      "sha256": "0a4357b8bae6ebc454ca17040499ef495ff2f315a16a714078216bd0f128dcb7"
+    },
+    {
+      "filename": "story-case-brakes.png",
+      "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-d7c13b6e-b582-42c2-8cca-1240588e91c3.png",
+      "output": "/workspace/scratch/sternoir-expansion-assets/parts/story-case-brakes.png",
+      "inspection": "Accepted after one targeted measuring-tool correction. Continuous compact caliper-style gauge is visible against the disc; the scene is illustrative and does not document exact measurement contact geometry. No readable data or captions.",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "bytes": 1854605,
+      "sha256": "9e90ecfdc6e0687dffe7266cb9e688140941c4a09296a8a627120bb621f86a5d"
+    }
+  ],
+  "corrections": [
+    {
+      "original": {
+        "prompt": "Use case: photorealistic-natural.\nAsset type: illustrative case-study photograph for the premium STERNOIR Mercedes service website.\nCreate one high-quality photorealistic automotive diagnostic work photograph, landscape 16:9, 1672 x 941 pixels.\nScene/backdrop: the same refined industrial workshop language as the existing collection: charcoal steel columns, pale warm-gray concrete walls, long ceiling strip lights, restrained dark-red vehicle lifts and tool cabinets. Silver metal and graphite surfaces. Softly blurred spacious clean workshop, warm side daylight mixed with gentle ceiling light, natural textures and realistic wear.\nStyle: premium documentary service photography, believable mechanic anatomy and component shapes. A distinct active inspection scene, not a product still life or collage.\nConstraints: no captions, logos, watermarks, readable labels, fake part numbers, legible data or text. Equipment displays turned away. No technical diagram or step-by-step procedure.\nSubject/composition: Close documentary photograph of a mechanic measuring the thickness of an exposed silver brake disc fitted on the front hub of a graphite Mercedes E-Class sedan, wheel removed. Frame from a higher side angle into the wheel arch, with the graphite fender curving above and a blurred red lift beyond. The brake disc is slightly left of center; two realistic black-gloved hands carefully hold a compact mechanical measuring caliper with its long narrow jaws spanning the rotor edge. The measuring tool is visually distinct from the actual brake caliper and its measurement scale is turned away, no readable data. Show thin machined rotor faces, vented disc edge, unpainted dark-gray brake caliper partly visible behind the rotor, subtle service wear and plausible proportions. Focus on hands, tool and disc edge. No bright-red brake caliper, no front-facing product shot, no car badge, no readable text.",
+        "reason": "Ambiguous measuring-caliper geometry; rejected for final use.",
+        "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-636d41d1-8c02-4ecc-bac4-6e234ca4ff2d.png"
+      },
+      "editPrompt": "Use case: precise-object-edit.\nEdit target: the attached brake inspection photograph.\nChange only the measuring tool and the mechanic's hand placement needed to hold it naturally. Preserve the graphite E-Class fender, mounted exposed brake disc, wheel arch, face and workwear, warm daylight, red lift, camera angle and workshop background.\nReplace the ambiguous long straight tool and detached-looking lower piece with ONE compact professional mechanical brake-disc thickness caliper: a recognizable rigid U-shaped / C-shaped gauge frame reaching around the OUTERMOST LEFT EDGE of the rotor, with two short opposing measurement contacts naturally straddling the rotor's two metal faces near that edge. The complete measuring tool must be clearly visible as one continuous piece; no detached parts or floating jaws. Mechanic holds this single gauge naturally using the existing two black-gloved hands, with no added hands or extra fingers. Keep the tool scale angled away with no readable data. This is an illustrative diagnostic photograph, not a technical diagram.\nRetain landscape 16:9 1672 x 941. No caption, logo, watermark, readable text or labels. Preserve photographic realism, realistic metal textures and all other scene content.",
+      "finalFilename": "story-case-brakes.png"
+    }
+  ]
+}

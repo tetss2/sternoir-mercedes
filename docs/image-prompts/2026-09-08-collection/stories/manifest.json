@@ -1,0 +1,132 @@
+[
+  {
+    "file": "/workspace/scratch/sternoir-expansion-assets/stories/story-collection.png",
+    "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-065f691c-f5c5-4e99-ac26-f46d2e6fff73.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "bytes": 2359582,
+    "sha256": "e06acf422621ef0eae642864f44bcc9ec10f091f99ab3724b8df407f69ccd9f2",
+    "mode": "built-in ImageGen",
+    "visually_inspected": true,
+    "original_unmodified": true
+  },
+  {
+    "file": "/workspace/scratch/sternoir-expansion-assets/stories/story-inspection.png",
+    "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-004656d3-858a-4e6a-95ee-44eddda0a4c3.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "bytes": 2187036,
+    "sha256": "23dc81ea77bb3714cdcef3872d026ed18d1c5e2fb68dfcba058f142af9ca6256",
+    "mode": "built-in ImageGen",
+    "visually_inspected": true,
+    "original_unmodified": true
+  },
+  {
+    "file": "/workspace/scratch/sternoir-expansion-assets/stories/story-winter.png",
+    "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-fa645268-31d4-4bd9-8eb1-4c1ad469723e.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "bytes": 2675198,
+    "sha256": "d0c135e0d49bc7c85ea3594745055beaba9f3a626a253e0c9cc798552c9343c8",
+    "mode": "built-in ImageGen",
+    "visually_inspected": true,
+    "original_unmodified": true
+  },
+  {
+    "file": "/workspace/scratch/sternoir-expansion-assets/stories/story-summer.png",
+    "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-e4c974ae-dffb-4a1c-b8dc-62c7cbced2a2.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "bytes": 2556758,
+    "sha256": "8fd35d2a0347c34e06559ca513e8604265657e8c9e9c5eba74dd10ecae7c0096",
+    "mode": "built-in ImageGen",
+    "visually_inspected": true,
+    "original_unmodified": true
+  },
+  {
+    "file": "/workspace/scratch/sternoir-expansion-assets/stories/story-roadtrip.png",
+    "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-aba38d5f-64d8-422a-8259-b0002a9f0f79.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "bytes": 2397694,
+    "sha256": "2a6ca0e4fea8512320ac956f143e0e79968fa6f39cd09969b66bd8a1939f47c3",
+    "mode": "built-in ImageGen",
+    "visually_inspected": true,
+    "original_unmodified": true
+  },
+  {
+    "file": "/workspace/scratch/sternoir-expansion-assets/stories/story-details.png",
+    "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-1123b580-2e32-44a0-bbb1-f6ca1d9983e5.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "bytes": 1849840,
+    "sha256": "4d86edaf0bbb6fd3362ca7a296310726a7b0857937d77d34ad705301640deff0",
+    "mode": "built-in ImageGen",
+    "visually_inspected": true,
+    "original_unmodified": true
+  },
+  {
+    "file": "/workspace/scratch/sternoir-expansion-assets/stories/story-quote.png",
+    "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-8743903d-2b22-4791-8a62-36bc0012c0bf.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "bytes": 2337050,
+    "sha256": "1f90d8008f59d04976ff3a441b1f3e924e50c09ed929b7877d62e256b9097eb8",
+    "mode": "built-in ImageGen",
+    "visually_inspected": true,
+    "original_unmodified": true
+  },
+  {
+    "file": "/workspace/scratch/sternoir-expansion-assets/stories/story-history.png",
+    "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-886124d3-8995-46e5-bea8-83946004c532.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "bytes": 1951757,
+    "sha256": "1b728cc3ea46c90d0ae429227c754a06893f1f2dc68e90f651af272af2edd9eb",
+    "mode": "built-in ImageGen",
+    "visually_inspected": true,
+    "original_unmodified": true
+  },
+  {
+    "file": "/workspace/scratch/sternoir-expansion-assets/stories/story-choice.png",
+    "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-931fa23c-c14d-4ec2-96bc-2ed691ffce63.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "bytes": 2071902,
+    "sha256": "30aa31271511672864dcba04a4b0d60575a6f096cdf0cc088dd71e3842c03e6e",
+    "mode": "built-in ImageGen",
+    "visually_inspected": true,
+    "original_unmodified": true
+  },
+  {
+    "file": "/workspace/scratch/sternoir-expansion-assets/stories/story-feedback.png",
+    "source": "/workspace/scratch/f0ea7af4d721/generated_images/exec-70519b9c-2185-4416-8b76-b106707e8679.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "bytes": 1883172,
+    "sha256": "86885be09f181d1fff69bbebd6a02ce06518444545cbbb2c349ffd0b11eb6193",
+    "mode": "built-in ImageGen",
+    "visually_inspected": true,
+    "original_unmodified": true
+  }
+]
