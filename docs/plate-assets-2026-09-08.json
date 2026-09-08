@@ -1,0 +1,922 @@
+{
+  "date": "2026-09-08",
+  "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+  "status": "complete",
+  "scope": "App photographs and the published legacy image-credit page; the new hero poster was inspected separately.",
+  "checked_photographs": 105,
+  "replaced_photographs": 95,
+  "total_replacement_bytes": 25247436,
+  "assets": [
+    {
+      "file": "public/assets/c-w204.webp",
+      "width": 1400,
+      "height": 762,
+      "bytes": 112884,
+      "sha256": "897bb265bf339cf858438ac8f1003d3c0a193254e6e268b760dd6d203c2173cb",
+      "original_sha256": "a2894a84f4e91faaf39fd2fb59007fb87370e64ca888c044c9f6de95d20a31e3",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-a-w169.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 291664,
+      "sha256": "22d7cebd1c047aafb4502e0b793f61fa2d063753e4653c4cec3b26e25623bbf4",
+      "original_sha256": "b938f358775590bda78b25fa55f02ccef4770d30e96ed0fc6aae4980fe8c502f",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-a-w176.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 258416,
+      "sha256": "aca77c4cd2cc64b8dc9ef4ff89b38f3034f7fa88dd4709c5b3432f3a97fa929a",
+      "original_sha256": "de3003abee6bef2cb13af45aeeb17e671e9bcb09b26436093cf3b742ec263367",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-a-w177.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 254674,
+      "sha256": "29e5765ab0ba2b2a070503c2fd1f6eecc83c4377f915251103559c35272855c3",
+      "original_sha256": "137f0d50dd7da09d024baace0c3a0b01a66fc93f4341d8b12f30a834be825636",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-amg-gt-c190.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 296394,
+      "sha256": "1095411915b87ee20ecd56c5ab31687db04fee61786e4dba0c6a43b73de6db97",
+      "original_sha256": "02ccb5433340c88e95d300e78e5591b221670fa0742ad140391d4f1891abcf2b",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-amg-gt-r190.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 276952,
+      "sha256": "57a94ccfcd32bb5930cf19e0760fad7c01bc0df4a47ff6af013586787203b7d6",
+      "original_sha256": "f6e7a4248bbf4b63f141bf2c4ad218c683e8fccf1379d048c048187b2d3d0ebc",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-amg-gt-x290.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 282218,
+      "sha256": "e5ac3fd9d50a30ba97c3324cc0966bb46a4c78c59df56302a16132715d6a6c9b",
+      "original_sha256": "d90651b3a8508d50c460bd88c8fbbaac52d44d28ba02e9d9e184137817aecfd6",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-b-w245.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 266438,
+      "sha256": "fb1e3b1e7a28d2e85ee07ff96dec6b59291617dc0ad4219af1925b5a4993c3f2",
+      "original_sha256": "207bd683dc840ec4837d181cd57b065c74f529c132e27bb6c744e796dd88b06a",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-b-w246.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 267470,
+      "sha256": "c1133cfa95a67ba9ca5ac1b8f9334d54b90896ea0e4545c2c3810530079c3977",
+      "original_sha256": "3ede279fe0ed2272badbc585e68d6a3c309011dc3dfa98b01f4b5157c5fd64d4",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-b-w247.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 241920,
+      "sha256": "8e0f6395b763ed334cf2dde05c93a333f81a9fce81bcf1babebeb66299791e2c",
+      "original_sha256": "5cd5ac3802e21959425a3287ac2154c62ce756820c6a21949250a26b277b04bb",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-c-w203.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 257920,
+      "sha256": "335db3232064910b223fe0a8b8b3840d6c0d3e49b42b41c1852967cf35791d4d",
+      "original_sha256": "6c3e7e4919c93ecdf4a62590f7446721d0b0ac5ebc49f65510f5f5783d534842",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-c-w204.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 302934,
+      "sha256": "4ae3b851cc382c29e1f7ae338ac203cc5ac0bdfca15e7fa2e4b5602805cdb8ee",
+      "original_sha256": "8632cc2da76655706272ba761a4f112371368dccd8be87df458ab57a4d3745bc",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-c-w205.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 264214,
+      "sha256": "21a258ec4fd5f3d19029a5f5d75ceb746a126960c89c4e1a583ac1976ed5c6fc",
+      "original_sha256": "71175a89fc4e6e04a8d4c1da460ae422a94fe534a38420c2a0fb3b4ceacdf899",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-c-w206.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 251902,
+      "sha256": "5361bb38b67b67f81b7f9de0d495ebb9862ea41e6a47753f65357f3f9b152c7f",
+      "original_sha256": "713ffd6e516a25c99086c89d1e088ef5712ee66ca1497bad6f00c5f3215209a0",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-cl-c215.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 234720,
+      "sha256": "78ca90a50d84ad9f35787a94d6e5dac63227f1a4dc44f84f01b6e9ab01724c78",
+      "original_sha256": "b8ed2694dc5f6848baef9d289b278772d3aca7eb4673a1094da808323b7a788f",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-cl-c216.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 255370,
+      "sha256": "6e84becb74f2d47332fb6e14321488ae9f267696a56a21f9dad41c1c5f77fe2e",
+      "original_sha256": "e9f4c190ea80131e53d35d668f9e8f784f3b6299cb9aafcd5d0c788e5c9399d7",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-cla-c117.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 251456,
+      "sha256": "5c97d9a852e257f6f1dfa0aff2ad7d43dafd473728fed72bfac226f1c653c51f",
+      "original_sha256": "9a670b11ad53f1c070fa62bff5411a0f6cf8cfe70d15111fb8c9c43b9671b767",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-cla-c118.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 242854,
+      "sha256": "f9c8cd6af9408d9c2c73d3f65ec6f7dd72f674f2e7f8f1ef82fb1b84e69b7e8b",
+      "original_sha256": "60a85cf7508a2a26b1be887a60f07c9563efe4128e1be79598f9f2caaeb87a97",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-cla-x117.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 277516,
+      "sha256": "ae471a84b54ec858d1e151b6cd9156aa578bb701ae50028f236b9154a7c19a89",
+      "original_sha256": "48d09ce16d112c62e16da3ee2c009b7a8a83b5264178e3db8842df613822a640",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-cla-x118.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 231260,
+      "sha256": "cd3ef27b020c64cb6e1c4cc1c88730a7496d2f91196ab07a33219e2ed6dc0a1a",
+      "original_sha256": "f4858436e67e3ac8ad3db3a5b92fa7938e9646a1a6aa5cab77793586ef4333ca",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-cls-c218.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 269128,
+      "sha256": "72270afb81baa44948f14482ae00dfb3151d098a145b80f46d0fa4dc8d267ac1",
+      "original_sha256": "6af8a4dc377c7729558ad74fd497bc794483bb473b4dd51a57d13f7ced1e6288",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-cls-c257.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 225868,
+      "sha256": "aa923ee610da1f3344b9251ce955e45788cf60a22f51e47a84c32854b0cee425",
+      "original_sha256": "5d3ca92f12a0c2e785eb4785ba0383831946964d1378cdec18092e2cc2cb2833",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-cls-w219.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 247616,
+      "sha256": "998be54c691f69f8ecad3ba1971dfb28337879d8b469d7d56f6c12199e081dff",
+      "original_sha256": "fcdf1d7be1ccc98d2594ecca308501d9bc309db2ddd56a96fb7b6f1f70da57ed",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-e-w211.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 249782,
+      "sha256": "a9ccd6cbf32eeaac8c6581b6d284217b4bfcad4863b41ed6f3e6dd2278d957f2",
+      "original_sha256": "936c00a3dafc50564b260c4b74ea95fd4ce5301fed0c96ea7e0513c292d40aca",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-e-w212.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 242104,
+      "sha256": "1da67146d174cfdb8ce2f8de8120ef3d3134bb8218efa9c086ec50b03b97fd55",
+      "original_sha256": "75b20b475a7445119178c69cb75cc7033bee32a81da6f691cc8fa2fe0327b60b",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-e-w213.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 276802,
+      "sha256": "c2ce63b6f4a6d16386bcbe54b78349ad4af7f688a66ee9d4607f1f9d1e9cf4c2",
+      "original_sha256": "a308c325d16e63c09fbf1f9f572a5f5de4725c649e9f52659e71177b6ea1e8eb",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-e-w214.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 301614,
+      "sha256": "33e2edbeb66e8a35456fc2aec5f6145abd74cbb4fe1bcb7e68ba0ec120b6b9ec",
+      "original_sha256": "d293eedf49cab9268dd5d0a3f2a6eac57fd552951fb8f7f277b89180f55e2efa",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-g-w463.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 327340,
+      "sha256": "44dd36422caddabd5a223a976c8584e2c8c23e360a8da99a8eed6cd072848981",
+      "original_sha256": "37a6e29d2e74563b2609f84db22a0e67aea9819808edd1d223de90bd953eced7",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-g-w465.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 274080,
+      "sha256": "f0025c4c07446155c8d3ffb1f958b5922b995446c9975102ca0917cb3c544fbe",
+      "original_sha256": "721b1fdeda8af87d5bf04cf61704491130120ff6c423a47511068d22f15e209d",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-gl-x164.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 335246,
+      "sha256": "6f99b39339bcec37d3b6a24f7cad4e043bf9207a03ad89a7ba4af1dbed00c78d",
+      "original_sha256": "a6946ffb147d2565f63a0f07d9ab16c80aad4bc1a272facd29e3f3206d2d8a45",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-gl-x166.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 289218,
+      "sha256": "bef3b48c77f24249b749f4e2bdddc0accd9394e3532a84b439dab0d8a810cc06",
+      "original_sha256": "ddd2b73dad62cba7afb49c6af4dc94df8fbf9bbc121902f8d2af8b1ced955e9f",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-gla-h247.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 333796,
+      "sha256": "d42cd0e89d3542b3e426c06fa3a9cda451c773f0a61827d1eb13549eb07ec59c",
+      "original_sha256": "bf5bbcb8dd8965238cfac794709cd61091b8117b72a269a69c63fbdc235dbb62",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-gla-x156.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 310878,
+      "sha256": "c36331ac5be2e40ee05e2cb9ad4efaded00cccbf1d0a39856f12db81d4fb7085",
+      "original_sha256": "fc2dc2ced96436cc7d9f3dc486a4257fad8572a3aca4f8fbf1f1faf8e3478ddc",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-glb-x247.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 273732,
+      "sha256": "9d544d4355460b72870a948f622ccf642a1e6bea1736db4006bc952ae27f9e4e",
+      "original_sha256": "9579e2e1c0ca14d469c1e2420e427caf84d01a270ed66b4ff12849472cac0e12",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-glc-c253.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 288110,
+      "sha256": "f9a21dc110b704afa9712c1ae777aa6013981d3ab09c2415d2898229dc4ccc1b",
+      "original_sha256": "3aaf217e7ec2513e58d1270697c2d0cb654799a5fbc6eecf41d7a630b054f37d",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-glc-x253.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 281434,
+      "sha256": "3cbb824b0e6d450e1b5aa7b84f839d0329d568bd2e40daed3bf4b853e686d473",
+      "original_sha256": "fd72c980bad8c160c3b8a4a559fa4580236931c58f7a6c79d39ff5f974f69054",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-glc-x254.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 270458,
+      "sha256": "440f55252fc1d3e03538cb4a98f88e351896088198701baa60763ceef782209f",
+      "original_sha256": "546532cb1dbdbcdba1e1b7fd2cc31de57e2142f5af7e6fa3a5558771db5bc3c5",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-gle-c167.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 276846,
+      "sha256": "fd7ea4e08978ef54100373f38f24ab2d2e8e366bfeff38aa16f1d828cde32a4d",
+      "original_sha256": "650c51eb3df16c3a44130484bef9795cd3c44111ea9a78ff5d64bef6b60b4cba",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-gle-c292.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 307114,
+      "sha256": "4fe19be3723b95e8a60615e31ea80e845112c8bac0be6587302e310507c7d039",
+      "original_sha256": "e3325834fb77fc3a311471d9996ecd02defec52666582849361f5716b4ed3bd1",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-gle-v167.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 319160,
+      "sha256": "1e3d2bccda2889ebf394d4f8aff248420614661865bc31887f2de18c022debba",
+      "original_sha256": "289029051981323f2c71ee1677a8b7a270f10065d71f8ec6aaac53f1cc5fbef9",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-gle-w166.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 286384,
+      "sha256": "b5a5b3eb0421b5a71d14e09bed350b032bdaf685bb96fc5d9170b5002978f848",
+      "original_sha256": "55fb7ef0d365f2f4fc36c11b4bddc75de096b5268d1c4c8af42cd17c63958ede",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-glk-x204.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 318836,
+      "sha256": "bad3abaa9b43afd02eecac73885027b446d79a947d3c3ae162dbc25adc4f38f3",
+      "original_sha256": "27512e788a97276b16758bf62ea367429ae00436a0b9abaffd07b5f61710969f",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-gls-x167.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 337682,
+      "sha256": "37da9bc14ad8ca851c201da9eb3cbca1f9ce2b611a4bc416e76ece8f98798688",
+      "original_sha256": "1a577ea3b14257511142f39d9923ec42896edee769ba332358f8e3c53191de8f",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-ml-w163.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 298714,
+      "sha256": "e539131b4e56ab8ce651b1568e957f390b645e2612cec561693b92449380b396",
+      "original_sha256": "0888ad705e3c27b6e38089d21734695ef68ecef6f1824a66e44dda14dd0b734c",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-ml-w164.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 299632,
+      "sha256": "f05914dead336017a7fe770819f777f31e03626a0ec43f50357117e090663de2",
+      "original_sha256": "5cf3494ce9fa45c5ccf31f9e9d233621ef5d734c2ff2eea6a7c8c347f14b7925",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-r-w251.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 286838,
+      "sha256": "77ebd8b30d69871fe60e1fdce8d6b3eb7fbc62271d7437bcc547c3adcaa4e6c1",
+      "original_sha256": "483bd53fa1da8b2ae34427e9d6d882b535d7b77b9a03f4405a054afb4c6bd7cb",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-s-w220.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 254698,
+      "sha256": "124a50382c7f4bb90bc7ecc0710265c86962ea939d24eabb69f9c997cf80c5e1",
+      "original_sha256": "e181eccb6dffd65f175f1fd9f6264a676b41ce401dfa4d8a2bf922a8246c3255",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-s-w221.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 236076,
+      "sha256": "9e975f0442d781a44f9f26bf955a34a92d4c232bd686c3a2cad62ac018515037",
+      "original_sha256": "0ed047b28235e1efaeebde1c265c44a145d24a8633a934c684ae936f29633d30",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-s-w222.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 296636,
+      "sha256": "fc27860dbe40ac7e9e580109d269fc86a386ec721b2612633ea9953f585ab5c4",
+      "original_sha256": "0d8daf0c0e4b5fc94ad62ab87bbef6fb8b4b1ac055b5cae8593bcbc07e4a99be",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-s-w223.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 230490,
+      "sha256": "4c92da24259508baed3ef82a14068b8de5106f14b5db48ab014f2611f3674169",
+      "original_sha256": "74dba01c0f8ae66c7436cc4a7838d0762f962802154729969b222058c48be9d2",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-sl-r230.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 293518,
+      "sha256": "a2a4852b591670a73ad68637fcf0b58194ca8dc30a5083917b5de967313e18b5",
+      "original_sha256": "52cc4df5b49e0da73daaf8324254c30ed1efc9f194e28441ec50fc08363bf54e",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-sl-r231.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 282312,
+      "sha256": "9e4a949b5bac5f5789ab075cbc69b9ff185a15a866f42cd75e09d8762d263d0e",
+      "original_sha256": "a2d64a5c2865cc15c54406bee616813e5fb34d99395911e41ec0928609e97e5a",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-sl-r232.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 264254,
+      "sha256": "928b562126545a7dae50ccd7167b6ed21dafbfc00d70fe122a11d07f9518e19e",
+      "original_sha256": "374de046c8cec4834c21dc515f4de4b9b0e49fbb12349b01be4d6a933ba43217",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-slk-r170.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 262576,
+      "sha256": "53df443377e2adc4d309e1d58cd448aace0b9cebb69d368fc9996fbbb07cc6aa",
+      "original_sha256": "8d4fb66a277934635c66dff84caf97a4a41a26c8dfcc3f85ec9e7be9d576e62c",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-slk-r171.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 291748,
+      "sha256": "d3665bc9633a8130863837fce0ae5fa59f9041a890382ad8c00978cbef855a7c",
+      "original_sha256": "0cd4eb6932960bdb918ad9a2664d0349e2b1df94f6312a5445218bfe0e984621",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-slk-r172.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 278634,
+      "sha256": "a735e4bf41248498680c3b5e8f900d171849987897f9187affb9955eecb546db",
+      "original_sha256": "e21779d33d4feaf132240ba947e175629eb18db0649f95eab709abba9ede4912",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-sprinter-w906.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 274044,
+      "sha256": "72f021ea1e203c7772bd76df2306abe7b69e98ca66a4aa0e11fc3aa266890cae",
+      "original_sha256": "1d9bd162b9e1d7fd16e14a6cd78820a5db0f8db3337e1ad9877a5841a813a43a",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-sprinter-w907.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 254586,
+      "sha256": "3782c17ecc0b90b518bf44953a62ee415b61e7ed5c19000298e1a275518fdff3",
+      "original_sha256": "b795387fcdd185dcedcec2ee61e01c6955da0e29a0b6794892ef5bfb9750b83e",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-sprinter-w910.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 309034,
+      "sha256": "66bc23a737624e9609803becc5e745c86c697545d4dcefb8661c987cdb051107",
+      "original_sha256": "63908b491e56c90e4d40409ec1408ac78e729ae025f2fb83966d547b21d1077e",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-v-w447.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 285210,
+      "sha256": "125924a01e537cfe58d41f1ac611c2c247cf25a2635c266d5fcba44ee822331a",
+      "original_sha256": "f0fe36abb90e33dc6504c127bec6298db44ec7a2aa885ab29da8df108afcc89c",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-v-w639.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 317072,
+      "sha256": "8d2540c0a6c6e7517ee9fc4e34080685b1a1690a40a3984a18e8a6d26706179a",
+      "original_sha256": "c9c1874afc7ea46f6e5681e30ed8e9d67e9db81009fe0a77630378733775d3bf",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/car-x-br470.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 260702,
+      "sha256": "532faaef072ee34baf38ffd03839664c771fd7b7dc44a35a170ad3ac7eaa65da",
+      "original_sha256": "b5410b57f4393ad0f2b6fcde868f3829d9f3218d4a13569e008dd960ecb25801",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/part-climate.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 332188,
+      "sha256": "bac5b581348e08018d8d140bf5a58adf86168f1f77c7899fd4f9620c94a71ff1",
+      "original_sha256": "d6a96c5d5a363d60492ead20b35225fec63c1107832e173689ce7c0fffd19069",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/part-diesel.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 279442,
+      "sha256": "8651c01d3a9088c60e2938f406d26e6b620394c93ae2eb480e03c4638601d8b8",
+      "original_sha256": "3441d062f3e9fff9b69eff17f50e479978ee54e868785657146ddc134c039cfd",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/part-electrics.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 278796,
+      "sha256": "8d23b2280bb58cee7d63ddae026e6f29b904bb3d1ac08ce569ebcc1276e69c3d",
+      "original_sha256": "d4fe7e3d8620f361bd556306fcd8d7199db278e6ff139c8061aeb689e9f0d6ae",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/part-engine.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 345578,
+      "sha256": "ca42f1f53856fed13ea873636bd8ea168eb01096cc93a5a6d15e68fbfc9052d4",
+      "original_sha256": "8d608c47085fb53a8850f1f33b40cd2673a5fe5ad58b6af6a704d8a97eeff755",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/part-fuel.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 256406,
+      "sha256": "91e7db9bcb62a229c5e9d3ce9bde93eda1e835294e4d1982ec915cda5e8cc7ba",
+      "original_sha256": "01e680234432a2cc37361a7f5d9e5e381ad59a1e5c3b40c7757333d04e10814e",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/part-maintenance.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 256586,
+      "sha256": "12dbb8c1e854c470e4293d9043d77950526ddacd071ba853f0b37e49e224d25d",
+      "original_sha256": "dc521195d46b086ab4f5605a8077ca07afeb70a4c15b61f68b65da6c0371fee4",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/part-parts.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 277366,
+      "sha256": "15f63850f431802d993ed2bacf8612ae1bd9c7cd00df5272838ba96dcea2cc69",
+      "original_sha256": "58c31e014cd1f43fb681ad7f3d71616f3c7bdfff178b0b71ebe879ea4551f183",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/story-case-suspension.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 213032,
+      "sha256": "9f18e1cb4b0097471488e492a93e97f4e1003fd03b28d4f0fc93301c860ccbf4",
+      "original_sha256": "c535dacce20b78d2795df78d415b261ad756db3b05f6bc272926581890da2415",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/story-case-transmission.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 293356,
+      "sha256": "1d1b5f0239791b99e54c027f81a6c9c9bb63d388734d7dd9748ad593723dc3d2",
+      "original_sha256": "e870024633bc501d4b19b8fa01d2ac9192cc111db4efa85ce6b46c8b0dcf9e48",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/story-collection.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 324948,
+      "sha256": "2be07c8dbe046deb82faab62a7e799165495442d272450f793b6d558efe69fd8",
+      "original_sha256": "e75fa7f60a8d57ccba58d81baf3b38c4d28f5d2a7873007bb7694c70e7c3cc18",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/story-details.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 182556,
+      "sha256": "f278c70b5323e6c5b27d95b44a8e582d38a6b1b1b6cd9ff62babc164351687e9",
+      "original_sha256": "c7638226695efeec939b45a51df315aa0b026b2077d6edb93e4cd4628c728585",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/story-feedback.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 211846,
+      "sha256": "4c60e1b5df405da35a82757c07a213a37a0921e2c445718a66ededdb8eb0de4b",
+      "original_sha256": "a957457c2048a63c4e1e5d3f59503dc453546445e75bfcf22ae4f14e442cf4b0",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/story-history.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 201148,
+      "sha256": "4239b12628081861dc3cb935894b3f6e3b1ba8a7b44613cf4c65c0fa8eceefd3",
+      "original_sha256": "c2845e1b48064e9a42a1e324d700bae4ecc707026f7ceb40cda5b83aed913cac",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/story-inspection.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 273152,
+      "sha256": "1c7915bb3dd3a3b4545cacf861955b384441f9a6f4a82e687a0e0b5b4df8fa94",
+      "original_sha256": "3ee437ac47f60740f02f7db82da9dd8c56873de7cfdd7df40ecf49e56bf5fb12",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/story-summer.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 361868,
+      "sha256": "61f0e56b577ee9c2495502f53f69ee48aab1c2abd259ce0fe3375f6f839d7d39",
+      "original_sha256": "838b57905f1c53cc3d5180d88c0b918144286c4c3c25c12148d231e3e355e10b",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/collection/story-winter.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 415920,
+      "sha256": "e5934342c2faca57ce65e7f17f666ccb4f094285f1dd785880bce78c76b8e06c",
+      "original_sha256": "3343d51520260ab914b8ead942c0886df54be3a01146a010dda85fb414e628d7",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/e-w212.webp",
+      "width": 1400,
+      "height": 767,
+      "bytes": 127962,
+      "sha256": "42ab1c6631c6750d7d4f31113f8a5939cc0654133cc2a83b09451118bd0625c7",
+      "original_sha256": "08eec39771e27d55ffe7edfb1e1e0b7652d25f8bf43549a1ea7faebe9dc52fcf",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/e-w213.webp",
+      "width": 1400,
+      "height": 702,
+      "bytes": 113912,
+      "sha256": "be86d9c340a31f35526594097cb252d2515aa771cd4d159c1035ac05bc710c95",
+      "original_sha256": "c5edbbb6c1ac4430c080f9c514ca542d41d1543cb99343ca36fe4ac6c15a378c",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/g-class-editorial.webp",
+      "width": 840,
+      "height": 1050,
+      "bytes": 75966,
+      "sha256": "1af747177c9ed9454fb2ddc599270bdd3a906e76013bae5f993a5f99e604fc7f",
+      "original_sha256": "07868c7f22dc11055239fc766f4b74fe69a97f0f848204c1555f40842114394c",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/glc-x253.webp",
+      "width": 1400,
+      "height": 1050,
+      "bytes": 333650,
+      "sha256": "57ebcfa00b65dca1b64c258c7d3b0b11ab87646080884750fe8de69146ce63f9",
+      "original_sha256": "730b603e0210684827272bea066a575665444893c57dc97f61af56380f7ffe3d",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/glk-x204.webp",
+      "width": 1400,
+      "height": 802,
+      "bytes": 127806,
+      "sha256": "d81f7b63740f19282bf168114602a29f4406d2a60df8850fce68479ef337e4c3",
+      "original_sha256": "f5a5da2ed0b36e890163a29f9dbc89f42729e3ad616673187dc8baea07170e67",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/ml-w164-better.webp",
+      "width": 1400,
+      "height": 895,
+      "bytes": 167612,
+      "sha256": "96cecc2bff1bf5a434e6cb3d5400ecb25b7ec70eab0862b72f6cbe5ed0c3a0b3",
+      "original_sha256": "da5c59be894503205360f99c55b0ecb5152e94ce23559a8eaed19cadeaaec20c",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/s-w222.webp",
+      "width": 1400,
+      "height": 634,
+      "bytes": 124652,
+      "sha256": "c211548ffdedafd01152222e4f8b8148e1444f147de1fb8e11a5a2d48684acc1",
+      "original_sha256": "a681360fac9c90fc72ec0d24170177b2cfb63dd241f3ab9a4adbc44d63bca30e",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/sternoir-club-welcome.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 231138,
+      "sha256": "f5569f6a3120f752b522ac66b9138b0b0d6ed0947445aabf66fd3c883a25a426",
+      "original_sha256": "f5ec46a754d6f1b069a37c6a91213fec599c82c5d41f1db39dda732083d50a5b",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/sternoir-diagnostics-alternate.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 272282,
+      "sha256": "e2d168c93510fe426f46e09a203fbd542bb998df2b94303860a952bb006b7cec",
+      "original_sha256": "0b9a29530fce487a1e2317b4e6f086d9d6e9b653bd2477853a88a0bb7c9a7ef1",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/sternoir-diagnostics.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 237818,
+      "sha256": "aff5b7135b281d2c2a84f68fe0c5c1c6442f80df1d5a6cfcaae3d68244cb6a85",
+      "original_sha256": "ea9a8fe75664abd001ad32a3cfefa68c2c9f461e82cbc09a974817a7bb044426",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/sternoir-handover-club.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 258178,
+      "sha256": "7c8cc255bdb9e88de1133c380c8e050a4eb55d4ac6924dd43de13d69513b2583",
+      "original_sha256": "f647194c5e8a01f98a9895855fb13f79e5d334100c025507033b4456a1d16e97",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/sternoir-lounge.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 348084,
+      "sha256": "022131d2b1849efc00e2c805a6edd7e1c32f57722ff66c855f30d0a317312d50",
+      "original_sha256": "cdabc75bf5c42f9321e63cf91be78f4eb7dfba487d0e7b2ebe9cd02effb2f338",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/sternoir-maintenance.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 288622,
+      "sha256": "000d8fcfde9c77d5754ec3c6d33eae221a778756066ad90c9b28b2aaea98d439",
+      "original_sha256": "04b5448ffe7321f83500a8ab19af12ada7fcd45ef52a0acd13a6388c3e108a46",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/sternoir-team-replacement.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 257896,
+      "sha256": "ab8de4ace689490cf94932b36bcd7f568890eeb655fbff5b6e4b36b75ca58faa",
+      "original_sha256": "a8d62744ed1cf65334341ee0f169f15efc85e6f29ed19b2a458f4bdeb1ab2af8",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/sternoir-workshop-alternate.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 353010,
+      "sha256": "acded6b0df598f9b7e47c1a5481ef45fc4770133e788f2011680bc1f3973eec3",
+      "original_sha256": "9599c0d99b41e46a666adb43768259334ffcf242bff5d1bc75115e9d12d3c5ec",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/sternoir-workshop-master.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 277320,
+      "sha256": "11b77341e2a94f9106073ecff7cd8f999551ae31ad41ceae19d79e5119d6760f",
+      "original_sha256": "dedf2655e1f9fc21feb3592f6b88dc7ae54e130a9d826e2c98f15d31344a04bd",
+      "visual_verified": true
+    },
+    {
+      "file": "public/assets/v-class.webp",
+      "width": 1024,
+      "height": 690,
+      "bytes": 108162,
+      "sha256": "76f920b4f564bb889b59465e9cc3e4c886dc23688cf9eb549714a6cd96f5073b",
+      "original_sha256": "a959909dc711dc2c8a6cafa3bfa422d77a590f82732b92bdfe936f4bce269222",
+      "visual_verified": true
+    }
+  ],
+  "unchanged_without_visible_plates": [
+    {
+      "file": "public/assets/e-w212-facelift-front.webp",
+      "reason": "no plate or blank plate fitted, bumper has only grille",
+      "sha256": "280f0e9d94e9fb819479aa029448eac3d9f4ccf54a775db569b6e580e5aee3aa"
+    },
+    {
+      "file": "public/assets/collection/part-alignment.webp",
+      "reason": "plate-bearing faces cropped or turned away",
+      "sha256": "26643371e953f1046bd39cd06d16de53067a79a8af51a05d6e6e200cd80c986e"
+    },
+    {
+      "file": "public/assets/collection/part-brakes.webp",
+      "reason": "only wheel/brake foreground; background car side has no discernible plate",
+      "sha256": "d8064bd5e2b5c9b80a683d3ee83530eaaa5210ac37b74c1bef2cac3b481e6436"
+    },
+    {
+      "file": "public/assets/collection/part-exhaust.webp",
+      "reason": "main plate outside frame; background car side/front obstructed and no discernible plate",
+      "sha256": "473bccfb9d7a33672003e7a06c08b15e0ab1afb92e21d785b318805ed3a5ff6c"
+    },
+    {
+      "file": "public/assets/collection/part-suspension.webp",
+      "reason": "background car faces oblique/blurred with no discernible plate",
+      "sha256": "a3586e4232925c7203f0f9f15b691cd87874aa6136c4e319da6f3b7f20bbb74b"
+    },
+    {
+      "file": "public/assets/collection/part-transmission.webp",
+      "reason": "rear plate bearing area occluded by column",
+      "sha256": "a567d0a09cdffb4a188a924f9ddbc1376fde0da77ad2a9365a3972adae550011"
+    },
+    {
+      "file": "public/assets/collection/story-case-brakes.webp",
+      "reason": "wheel foreground and background plate area occluded by lift column",
+      "sha256": "6fccc00b04206c3f341ecfa2f5d2bc007fbd8ef5d65f9db1847b306f68b72d7d"
+    },
+    {
+      "file": "public/assets/collection/story-choice.webp",
+      "reason": "background cars cropped to wheels and underbodies",
+      "sha256": "f0545988456a73b9eb8137b518ed92aeb6a67eb91a80c1963bacd2d3d202c128"
+    },
+    {
+      "file": "public/assets/collection/story-quote.webp",
+      "reason": "non-car close-up, no vehicles",
+      "sha256": "0dc4a4fc03e7114d6ceb461fdec8c2e5d92fddc85590483209079b1fe006c157"
+    },
+    {
+      "file": "public/assets/collection/story-roadtrip.webp",
+      "reason": "tailgate raised, exterior plate face not visible",
+      "sha256": "c251a01b83c2f8f4f5a7b3f792a7841afedc0ec44e8fc4b173174b4e4eaabf06"
+    }
+  ],
+  "video_poster": {
+    "file": "public/assets/hero-g63-poster.webp",
+    "reason": "No visible fitted license plate in the supplied G 63 footage; no plate invented."
+  }
+}

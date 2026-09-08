@@ -10,7 +10,7 @@ Set `NODE_ENV=production`, canonical `APP_URL=https://mercedes.tetss.com`, and o
 
 ## Pages and workflows
 
-Home with edited moving-car video, eight service directions, nine model-family pages, club, workshop/team, price explanation, parts, repair process, journal, contacts, image credits and data information. Client registration, garage, requests, versioned quotes, approval/rejection, messages and audit history. Administrator queue, actual counters, search, scheduling, controlled states, quote editor and verified assignment of guest requests.
+Home with a full-width G 63 forest-road film, 12 service directions, 22 model families and 61 generation pages, club, workshop/team, price explanation, parts, repair process, journal, contacts, image credits and data information. Client registration, garage, requests, versioned quotes, approval/rejection, messages and audit history. Administrator queue, actual counters, search, scheduling, controlled states, quote editor and verified assignment of guest requests.
 
 ## Important launch conditions
 
@@ -20,6 +20,6 @@ Email/SMS delivery, online payments, email password recovery and external CRM ar
 
 ## Assets and previous concepts
 
-All production media and fonts are local to the repository; no image hotlinks or advertising trackers. Image authors, sources and licenses are on `/credits`, with source metadata in docs. Generated workshop images use one consistent architectural reference. Original uploaded video is trimmed and looped; see docs/video-loop.md for exact edit and remaining blend limitations.
+All production media and fonts are local to the repository; no image hotlinks or advertising trackers. Image authors, sources and licenses are on `/credits`, with source metadata in docs. Generated workshop images use one consistent architectural reference. Visible license plates in published photographs use white STERNOIR lettering on black; image edits and preserved original hashes are recorded in `docs/plate-assets-2026-09-08.json`. The owner-provided G 63 video is edited into an 8.54-second loop; see `docs/video-loop.md` for the exact edit, ultrawide presentation and remaining blend limitations.
 
 The previous ChatGPT Site export is preserved in archive/previous-concepts.tar.gz, excluded from the production Docker image. Copyright and third-party image licenses remain separate from application code. Public source repository does not grant a stock-photo redistribution license beyond each source's terms.
