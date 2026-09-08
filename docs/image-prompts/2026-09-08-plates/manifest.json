@@ -1,0 +1,182 @@
+[
+  {
+    "file": "public/assets/collection/car-a-w169.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-a-w169.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-a-w176.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-a-w176.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-a-w177.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-a-w177.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-amg-gt-c190.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-amg-gt-c190.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-amg-gt-r190.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-amg-gt-r190.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-amg-gt-x290.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-amg-gt-x290.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-b-w245.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-b-w245.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-b-w246.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-b-w246.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-b-w247.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-b-w247.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-c-w203.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-c-w203.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-c-w204.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-c-w204.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-c-w205.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-c-w205.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-c-w206.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-c-w206.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-cl-c215.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-cl-c215.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-cl-c216.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-cl-c216.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-cla-c117.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-cla-c117.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-cla-c118.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-cla-c118.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-cla-x117.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-cla-x117.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-cla-x118.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-cla-x118.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-cls-c218.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-cls-c218.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-cls-c257.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-cls-c257.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-cls-w219.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-cls-w219.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-e-w211.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-e-w211.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-e-w212.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-e-w212.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-e-w213.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-e-w213.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-e-w214.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-e-w214.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-g-w463.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-g-w463.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-g-w465.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-g-w465.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-gl-x164.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-gl-x164.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  },
+  {
+    "file": "public/assets/collection/car-gl-x166.webp",
+    "source_commit": "be01e58982097241c1d5c1db8002a8dc12923f4a",
+    "prompt": "Use case: precise-object-edit. Asset type: existing STERNOIR website photograph, car-gl-x166.\nInput image 1 is the sole edit target. Replace ONLY the visible vehicle license plate face with a realistic matte black physical plate carrying exactly \"STERNOIR\" in crisp white uppercase sans-serif letters, centered in one line. Spelling must be S T E R N O I R. No other letters, numerals, country code, EU strip, flag or symbols on the plate. Keep the same plate position, size, shape, mounting and precise perspective; integrate with existing illumination and mild reflections. Do not place text anywhere outside the license plate.\nPreserve every other part of the original image: exact Mercedes model and generation, paint, wheels, grille and badges, geometry, framing, scene, glass, furniture, architecture, shadows, and lighting. No redesign, extra cars or people, no crop. Return the same 1672×941 canvas and aspect ratio.",
+    "verification": "Visually inspected for STERNOIR spelling, black plate, white text and retained scene."
+  }
+]
